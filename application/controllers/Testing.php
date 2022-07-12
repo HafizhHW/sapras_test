@@ -358,10 +358,10 @@ class Testing extends CI_Controller
         redirect('Testing/add_test');
       } else {
         $judull = $this->input->post('judul', TRUE);
-        $doct = $this->upload->data('file_name');
+        // $doct = $this->upload->data('file_name');
         $data = array(
           'judul' => $judull,
-          'doc' => $doct
+          // 'doc' => $doct
         );
         $this->Testing_model->insert_data($data, 'files');
         redirect('Testing');

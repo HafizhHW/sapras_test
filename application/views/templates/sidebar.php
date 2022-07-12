@@ -130,8 +130,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<? //php base_url('') 
-                                        ?>" class="nav-link">
+                            <a href="<?php echo base_url('Transaksi') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Transaksi') echo 'active' ?>">
                                 <i class="fas fa-fw fa-file-invoice"></i>
                                 <p>
                                     Transaksi Barang

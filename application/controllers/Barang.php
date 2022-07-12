@@ -115,184 +115,185 @@ class Barang extends CI_Controller
 
 
   // ==== BAWAH OK ====
-  // function add_act()
-  // {
-  //   $this->_rules();
-
-  //   if ($this->form_validation->run() == FALSE) {
-  //     $this->add_barang();
-  //   } else {
-
-  //     $config = [
-  //       'upload_path' => 'assets/F_doc_brg',
-  //       'allowed_types' => 'pdf|doc|docx|xls|xlsx|jpg|jpeg|png',
-  //       'max_size' => 3072,
-  //       'file_name' => 'item-' . date('ymd') . '-' . substr(md5(rand()), 0, 10)
-  //     ];
-
-  //     $this->load->library('upload');
-  //     $this->upload->initialize($config);
-  //     if (!$this->upload->do_upload('doc_barang')) {
-  //       // var_dump($this->upload->display_errors());
-  //       // die();
-  //       // $this->add_barang($error);
-  //       // var_dump($this->add_barang($error));
-  //       // echo "Gagal Tambah !";
-  //       $error = array('error' => $this->upload->display_errors());
-  //       $this->session->set_flashdata($error);
-  //       redirect('Barang/add_barang');
-  //     } else {
-
-
-  //       $dokumen = $this->upload->data();
-  //       $dokumen = $dokumen['file_name'];
-  //       $nm_barang = $this->input->post('nm_barang', TRUE);
-  //       $no_seri = $this->input->post('no_seri', TRUE);
-  //       $jml_barang = $this->input->post('jml_barang', TRUE);
-  //       $kat_barang = $this->input->post('kat_barang', TRUE);
-  //       $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
-  //       $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
-  //       $penempatan = $this->input->post('penempatan', TRUE);
-
-  //       $data = array(
-  //         'nm_barang' => $nm_barang,
-  //         'no_seri' => $no_seri,
-  //         'jml_barang' => $jml_barang,
-  //         'kat_barang' => $kat_barang,
-  //         'kat_anggaran' => $kat_anggaran,
-  //         'thn_pengadaan' => $thn_pengadaan,
-  //         'penempatan' => $penempatan,
-  //         'doc_barang' => $dokumen
-  //       );
-  //       $this->Barang_model->insert_data($data, 'tbl_barang');
-
-  //       $this->session->set_flashdata('pesan', '
-  //       <div class="alert alert-success alert-dismissible fade show" role="alert">
-  //         Data Berhasil Ditambahkan !
-  //         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  //           <span aria-hidden="true">&times;</span>
-  //         </button>
-  //       </div>');
-  //       redirect('Barang/index');
-  //     }
-  //   }
-  // }
-
-
-  // === BAWAH TEST ===
-
   function add_act()
   {
-    // $this->_rules();
+    $this->_rules();
 
-    // if ($this->form_validation->run() == FALSE) {
-    //   $this->add_barang();
-    // } else {
-
-    $nm_barang = $this->input->post('nm_barang', TRUE);
-    $no_seri = $this->input->post('no_seri', TRUE);
-    $jml_barang = $this->input->post('jml_barang', TRUE);
-    $kat_barang = $this->input->post('kat_barang', TRUE);
-    $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
-    $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
-    $penempatan = $this->input->post('penempatan', TRUE);
-    $dokumen = $this->upload->data();
-    $dokumen = $$_FILES['doc_barang']['name'];
-    $dokumen = $_POST['file_upload'];
-    if (empty($dokumen) === true) {
-      echo "Gagal Upload";
+    if ($this->form_validation->run() == FALSE) {
+      $this->add_barang();
     } else {
-      print_r($_FILES);
-      $dokumen = $this->upload->data('file_name');
-    }
-    $data = [
-      'nm_barang' => $nm_barang,
-      'no_seri' => $no_seri,
-      'jml_barang' => $jml_barang,
-      'kat_barang' => $kat_barang,
-      'kat_anggaran' => $kat_anggaran,
-      'thn_pengadaan' => $thn_pengadaan,
-      'penempatan' => $penempatan,
-    ];
-    $this->Barang_model->insert_data($data, 'tbl_barang');
-    $this->session->set_flashdata('pesan', '
+
+      $config = [
+        'upload_path' => 'assets/F_doc_brg',
+        'allowed_types' => 'pdf|doc|docx|xls|xlsx|jpg|jpeg|png',
+        'max_size' => 3072,
+        'file_name' => 'item-' . date('ymd') . '-' . substr(md5(rand()), 0, 10)
+      ];
+
+      $this->load->library('upload');
+      $this->upload->initialize($config);
+      if (!$this->upload->do_upload('doc_barang')) {
+        // var_dump($this->upload->display_errors());
+        // die();
+        // $this->add_barang($error);
+        // var_dump($this->add_barang($error));
+        // echo "Gagal Tambah !";
+        $error = array('error' => $this->upload->display_errors());
+        $this->session->set_flashdata($error);
+        redirect('Barang/add_barang');
+      } else {
+
+
+        $dokumen = $this->upload->data();
+        $dokumen = $dokumen['file_name'];
+        $nm_barang = $this->input->post('nm_barang', TRUE);
+        $no_seri = $this->input->post('no_seri', TRUE);
+        $jml_barang = $this->input->post('jml_barang', TRUE);
+        $kat_barang = $this->input->post('kat_barang', TRUE);
+        $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
+        $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
+        $penempatan = $this->input->post('penempatan', TRUE);
+
+        $data = array(
+          'nm_barang' => $nm_barang,
+          'no_seri' => $no_seri,
+          'jml_barang' => $jml_barang,
+          'kat_barang' => $kat_barang,
+          'kat_anggaran' => $kat_anggaran,
+          'thn_pengadaan' => $thn_pengadaan,
+          'penempatan' => $penempatan,
+          'doc_barang' => $dokumen
+        );
+        $this->Barang_model->insert_data($data, 'tbl_barang');
+
+        $this->session->set_flashdata('pesan', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           Data Berhasil Ditambahkan !
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>');
-    redirect('Barang/add_barang');
-    // $config = [
-    //   'upload_path' => 'assets/F_doc_brg',
-    //   'allowed_types' => 'pdf|doc|docx|xls|xlsx|jpg|jpeg|png',
-    //   'max_size' => 3072,
-    //   'file_name' => 'item-' . date('ymd') . '-' . substr(md5(rand()), 0, 10)
-    // ];
-
-    // $this->load->library('upload');
-    // $this->upload->initialize($config);
-    // if ($this->upload->do_upload('doc_barang')) { //jika mengisi dokumen maka harus di validasi
-
-    //   $dokumen = $this->upload->data();
-    //   $dokumen = $dokumen['file_name'];
-
-
-    //   $data = array(
-    //     'nm_barang' => $nm_barang,
-    //     'no_seri' => $no_seri,
-    //     'jml_barang' => $jml_barang,
-    //     'kat_barang' => $kat_barang,
-    //     'kat_anggaran' => $kat_anggaran,
-    //     'thn_pengadaan' => $thn_pengadaan,
-    //     'penempatan' => $penempatan,
-    //     'doc_barang' => $dokumen
-    //   );
-    //   $this->Barang_model->insert_data($data, 'tbl_barang');
-
-    //   $error = array('error' => $this->upload->display_errors());
-    //   $this->session->set_flashdata($error);
-    //   redirect('Barang/add_barang');
-
-    //   // $this->session->set_flashdata('pesan', '
-    //   // <div class="alert alert-success alert-dismissible fade show" role="alert">
-    //   //   Data Berhasil Ditambahkan !
-    //   //   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    //   //     <span aria-hidden="true">&times;</span>
-    //   //   </button>
-    //   // </div>');
-    //   // $this->add_barang($error);
-    //   // redirect('Barang/add_barang');
-    //   // ===
-
-
-    // } else if (!$this->upload->do_upload('doc_barang')) { //jika tidak mengisi dokumen maka langusng ke index
-    //   $nm_barang = $this->input->post('nm_barang', TRUE);
-    //   $no_seri = $this->input->post('no_seri', TRUE);
-    //   $jml_barang = $this->input->post('jml_barang', TRUE);
-    //   $kat_barang = $this->input->post('kat_barang', TRUE);
-    //   $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
-    //   $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
-    //   $penempatan = $this->input->post('penempatan', TRUE);
-
-    //   $data = array(
-    //     'nm_barang' => $nm_barang,
-    //     'no_seri' => $no_seri,
-    //     'jml_barang' => $jml_barang,
-    //     'kat_barang' => $kat_barang,
-    //     'kat_anggaran' => $kat_anggaran,
-    //     'thn_pengadaan' => $thn_pengadaan,
-    //     'penempatan' => $penempatan,
-
-    //   );
-    //   $this->Barang_model->insert_data($data, 'tbl_barang');
-    //   $error = array('error' => $this->upload->display_errors());
-    //   $this->session->set_flashdata($error);
-
-    //   redirect('Barang/index');
-    // }
-    // }
+        redirect('Barang/index');
+      }
+    }
   }
+
+
+  // === BAWAH TEST ===
+
+  // function add_act()
+  // {
+  //   // $this->_rules();
+
+  //   // if ($this->form_validation->run() == FALSE) {
+  //   //   $this->add_barang();
+  //   // } else {
+
+  //   $nm_barang = $this->input->post('nm_barang', TRUE);
+  //   $no_seri = $this->input->post('no_seri', TRUE);
+  //   $jml_barang = $this->input->post('jml_barang', TRUE);
+  //   $kat_barang = $this->input->post('kat_barang', TRUE);
+  //   $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
+  //   $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
+  //   $penempatan = $this->input->post('penempatan', TRUE);
+  //   $dokumen = $this->upload->data();
+  //   $dokumen = $$_FILES['doc_barang']['name'];
+  //   $dokumen = $_POST['file_upload'];
+  //   if (empty($dokumen) === true) {
+  //     echo "Gagal Upload";
+  //   } else {
+  //     print_r($_FILES);
+  //     $dokumen = $this->upload->data('file_name');
+  //   }
+  //   $data = [
+  //     'nm_barang' => $nm_barang,
+  //     'no_seri' => $no_seri,
+  //     'jml_barang' => $jml_barang,
+  //     'kat_barang' => $kat_barang,
+  //     'kat_anggaran' => $kat_anggaran,
+  //     'thn_pengadaan' => $thn_pengadaan,
+  //     'penempatan' => $penempatan,
+  //   ];
+  //   $this->Barang_model->insert_data($data, 'tbl_barang');
+  //   $this->session->set_flashdata('pesan', '
+  //       <div class="alert alert-success alert-dismissible fade show" role="alert">
+  //         Data Berhasil Ditambahkan !
+  //         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  //           <span aria-hidden="true">&times;</span>
+  //         </button>
+  //       </div>');
+  //   redirect('Barang/add_barang');
+  //   // $config = [
+  //   //   'upload_path' => 'assets/F_doc_brg',
+  //   //   'allowed_types' => 'pdf|doc|docx|xls|xlsx|jpg|jpeg|png',
+  //   //   'max_size' => 3072,
+  //   //   'file_name' => 'item-' . date('ymd') . '-' . substr(md5(rand()), 0, 10)
+  //   // ];
+
+  //   // $this->load->library('upload');
+  //   // $this->upload->initialize($config);
+  //   // if ($this->upload->do_upload('doc_barang')) { //jika mengisi dokumen maka harus di validasi
+
+  //   //   $dokumen = $this->upload->data();
+  //   //   $dokumen = $dokumen['file_name'];
+
+
+  //   //   $data = array(
+  //   //     'nm_barang' => $nm_barang,
+  //   //     'no_seri' => $no_seri,
+  //   //     'jml_barang' => $jml_barang,
+  //   //     'kat_barang' => $kat_barang,
+  //   //     'kat_anggaran' => $kat_anggaran,
+  //   //     'thn_pengadaan' => $thn_pengadaan,
+  //   //     'penempatan' => $penempatan,
+  //   //     'doc_barang' => $dokumen
+  //   //   );
+  //   //   $this->Barang_model->insert_data($data, 'tbl_barang');
+
+  //   //   $error = array('error' => $this->upload->display_errors());
+  //   //   $this->session->set_flashdata($error);
+  //   //   redirect('Barang/add_barang');
+
+  //   //   // $this->session->set_flashdata('pesan', '
+  //   //   // <div class="alert alert-success alert-dismissible fade show" role="alert">
+  //   //   //   Data Berhasil Ditambahkan !
+  //   //   //   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  //   //   //     <span aria-hidden="true">&times;</span>
+  //   //   //   </button>
+  //   //   // </div>');
+  //   //   // $this->add_barang($error);
+  //   //   // redirect('Barang/add_barang');
+  //   //   // ===
+
+
+  //   // } else if (!$this->upload->do_upload('doc_barang')) { //jika tidak mengisi dokumen maka langusng ke index
+  //   //   $nm_barang = $this->input->post('nm_barang', TRUE);
+  //   //   $no_seri = $this->input->post('no_seri', TRUE);
+  //   //   $jml_barang = $this->input->post('jml_barang', TRUE);
+  //   //   $kat_barang = $this->input->post('kat_barang', TRUE);
+  //   //   $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
+  //   //   $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
+  //   //   $penempatan = $this->input->post('penempatan', TRUE);
+
+  //   //   $data = array(
+  //   //     'nm_barang' => $nm_barang,
+  //   //     'no_seri' => $no_seri,
+  //   //     'jml_barang' => $jml_barang,
+  //   //     'kat_barang' => $kat_barang,
+  //   //     'kat_anggaran' => $kat_anggaran,
+  //   //     'thn_pengadaan' => $thn_pengadaan,
+  //   //     'penempatan' => $penempatan,
+
+  //   //   );
+  //   //   $this->Barang_model->insert_data($data, 'tbl_barang');
+  //   //   $error = array('error' => $this->upload->display_errors());
+  //   //   $this->session->set_flashdata($error);
+
+  //   //   redirect('Barang/index');
+  //   // }
+  //   // }
+  // }
+
   // function add_act()
   // {
   //   $this->_rules();

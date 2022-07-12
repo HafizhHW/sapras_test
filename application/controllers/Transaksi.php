@@ -12,14 +12,26 @@ class Transaksi extends CI_Controller
 
   public function index()
   {
-    $data['title'] = "Barang";
-    $data['judul'] = "Data Barang";
+    $data['title'] = "Transaksi";
+    $data['judul'] = "Data Transaksi";
 
     $data['transaksi'] = $this->Transaksi_model->get_joinData('tbl_trasnsaksi');
-    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
-    $this->load->view('F_barang/V_barang', $data);
+    $this->load->view('F_transaksi/V_transaksi', $data);
+    $this->load->view('templates/footer');
+  }
+
+  function Add_transaksi()
+  {
+    $data['title'] = "Transaksi";
+    $data['judul'] = "Data Transaksi";
+
+    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    $data['transaksi'] = $this->Transaksi_model->get_joinData('tbl_trasnsaksi');
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_transaksi/Add_transaksi', $data);
     $this->load->view('templates/footer');
   }
 }

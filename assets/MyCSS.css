@@ -1,0 +1,39 @@
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffef9f;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+body {
+    background-color: secondary;
+    /* background-color: #2ec4b6; */
+}
+
+
+@media (min-width: 576px) {
+    col-img {
+        background-color: yellowgreen;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .col-img {
+        background-color: purple;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-img {
+        background: url("../assets/image/books.jpg") center;
+
+    }
+}
+
+/* background: url("../assets/image/LogoSMKN1.png") no-repeat fixed; */
