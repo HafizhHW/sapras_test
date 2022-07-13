@@ -149,6 +149,7 @@ class Barang extends CI_Controller
         $nm_barang = $this->input->post('nm_barang', TRUE);
         $no_seri = $this->input->post('no_seri', TRUE);
         $jml_barang = $this->input->post('jml_barang', TRUE);
+        $unit = $this->input->post('unit', TRUE);
         $kat_barang = $this->input->post('kat_barang', TRUE);
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
@@ -158,6 +159,7 @@ class Barang extends CI_Controller
           'nm_barang' => $nm_barang,
           'no_seri' => $no_seri,
           'jml_barang' => $jml_barang,
+          'unit' => $unit,
           'kat_barang' => $kat_barang,
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
@@ -407,6 +409,7 @@ class Barang extends CI_Controller
         $nm_barang = $this->input->post('nm_barang', TRUE);
         $no_seri = $this->input->post('no_seri', TRUE);
         $jml_barang = $this->input->post('jml_barang', TRUE);
+        $unit = $this->input->post('unit', TRUE);
         $kat_barang = $this->input->post('kat_barang', TRUE);
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
@@ -417,6 +420,7 @@ class Barang extends CI_Controller
           'nm_barang' => $nm_barang,
           'no_seri' => $no_seri,
           'jml_barang' => $jml_barang,
+          'unit' => $unit,
           'kat_barang' => $kat_barang,
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,

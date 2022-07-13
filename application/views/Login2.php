@@ -1,68 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>SB Admin 2 - Login</title>
 
-    <title>Hello, world!</title>
+    <!-- Custom fonts for this template-->
+    <link href="sbadmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <style type="text/css">
-        .card {
-            border: 0;
-            border-radius: 0;
-            color: #fff;
-            box-shadow: 5px 5px 10px #e1e1e1;
-            padding: 3em 0;
-            border-bottom-right-radius: 4em;
-            border-top-left-radius: 4em;
-            background: linear-gradient(to left, teal 50%, #26282b 50%);
-            background-size: 200%;
-            background-position: right;
-            transition: background-position 0.5s ease-out;
-            width: 35rem;
-            height: 30rem;
-            align-items: center;
-        }
+    <link rel="stylesheet" href="assets\MyStyle.css">
 
-        .card-icon {
-            margin: 0 1em;
-        }
+    <!-- Custom styles for this template-->
+    <link href="sbadmin/css/sb-admin-2.min.css" rel="stylesheet">
 
-        .card-icon i {
-            font-size: 3em;
-        }
 
-        .card:hover {
-            background-position: left;
-        }
-    </style>
 </head>
 
-<body>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
+<body class="bg-gradient-primary">
 
-                </div>
-                <div class="col-lg-7">
+    <div class="container">
 
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block ">
+                                <img src="assets\image\student.jpg" alt="" style="height: 38rem ;width:30rem">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="col-lg-9 col-md-9 col-sm-9 mx-auto rounded-3">
+
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="card mb-3 mt-5 border-0" style="width:100pt; background-color:transparent;">
+                                            <img src=" assets\image\LogoSMKN1.png" class="" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row d-flex justify-content-center">
+
+                                        <div class="form-login ">
+                                            <h2 class="text-center mb-3">Silahkan Masuk !</h2>
+
+                                            <form action="">
+
+                                                <div class="form-floating mb-3">
+                                                    <input type="email" class="form-control border-2 rounded-pill" id="floatingInput" placeholder="Username">
+                                                    <label for="floatingInput">Username</label>
+                                                </div>
+
+                                                <div class="form-floating mb-5">
+                                                    <input type="password" class="form-control border-2 rounded-pill" id="floatingPassword" placeholder="Password">
+                                                    <label for="floatingPassword">Password</label>
+                                                </div>
+
+                                                <div class="d-grid gap-2 col-3 mx-auto">
+                                                    <button class="btn btn-outline-dark border-2 rounded-pill" type="button">Login</button>
+                                                </div>
+
+                                            </form>
+                                            <hr class="" style="height:2px;border-width:0;color:gray;">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row d-flex justify-content-center">
+
+                                        <div class="d-flex justify-content-evenly pt-4 mb-5">
+
+                                            <a href="" style="text-decoration:none;"><i class="fa-brands fa-youtube fa-2xl mr-2"></i></a>
+                                            <a href=""><i class="fa-brands fa-facebook-square fa-2xl"></i></a>
+                                            <a href=""><i class="fa-brands fa-instagram-square fa-2xl ml-2"></i></a>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <!-- <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div>
+                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </a>
+                                        <hr>
+                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Create an Account!</a>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
         </div>
 
-    </section>
+    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="sbadmin/vendor/jquery/jquery.min.js"></script>
+    <script src="sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="sbadmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://kit.fontawesome.com/8c2f5452bf.js" crossorigin="anonymous"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="sbadmin/js/sb-admin-2.min.js"></script>
+
 </body>
 
 </html>

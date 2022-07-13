@@ -21,8 +21,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-item dropdown no-arrow ">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- <? //php echo $this->session->userdata("ses_nama") 
-                                    ?>  -->
+                            <?php echo $this->session->userdata("ses_nama")
+                            ?>
                             <i class="fas fa-user-circle fa-fw"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -31,11 +31,11 @@
                             <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
                                                     ?>" href="<? //php echo base_url('index.php/user') 
                                                                 ?>">
-                                <i class="fas fa-fw fa-user-tie"></i> User</a>
+                                <i class="fas fa-fw fa-user-tie"></i> Profile</a>
                             <div class="dropdown-divider"></div>
                             <!-- <? //php } 
                                     ?> -->
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="<?php echo base_url('Auth/Logout') ?>" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-fw fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </a>
@@ -117,54 +117,59 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="<? //php base_url('') 
-                                        ?>" class="nav-link">
-                                <!-- <i class="fas fa-fw fa-database"></i> -->
-                                <i class="fas fa-fw fa-file-archive"></i>
-                                <p>
-                                    Data Barang Rusak
-                                    <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
-                            </a>
-                        </li>
+                        <?php if ($this->session->userdata('akses') == '1') { ?>
+                            <li class="nav-item">
+                                <a href="<? //php base_url('') 
+                                            ?>" class="nav-link">
+                                    <!-- <i class="fas fa-fw fa-database"></i> -->
+                                    <i class="fas fa-fw fa-file-archive"></i>
+                                    <p>
+                                        Data Barang Rusak
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="<?php echo base_url('Transaksi') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Transaksi') echo 'active' ?>">
+                                    <i class="fas fa-fw fa-file-invoice"></i>
+                                    <p>
+                                        Transaksi Barang
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="<?php echo base_url('User') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'User') echo 'active' ?>">
+                                    <i class="fas fa-fw fa-users-cog"></i>
+                                    <!-- <i class="fa-regular fa-users-gear"></i> -->
+
+                                    <p>
+                                        Data User
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <!-- <i class="fas fa-fw fa-users"></i> -->
+                                    <i class="fas fa-fw fa-project-diagram"></i>
+
+                                    <p>
+                                        Pilot Project
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
+                            </li>
+                        <?php } ?>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url('Transaksi') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Transaksi') echo 'active' ?>">
-                                <i class="fas fa-fw fa-file-invoice"></i>
-                                <p>
-                                    Transaksi Barang
-                                    <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url('User') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'User') echo 'active' ?>">
-                                <i class="fas fa-fw fa-users-cog"></i>
-                                <!-- <i class="fa-regular fa-users-gear"></i> -->
-
-                                <p>
-                                    Data User
-                                    <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <!-- <i class="fas fa-fw fa-users"></i> -->
-                                <i class="fas fa-fw fa-project-diagram"></i>
-
-                                <p>
-                                    Pilot Project
-                                    <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?php echo base_url('Auth/Logout') ?>" class="nav-link">
                                 <!-- <i class="fas fa-fw fa-users"></i> -->
                                 <i class="fas fa-fw fa-sign-out-alt"></i>
 

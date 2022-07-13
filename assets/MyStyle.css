@@ -1,0 +1,69 @@
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffef9f;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+body {
+    background-color: #abc4ff;
+    /* background-color: #2ec4b6; */
+}
+
+.btn:hover {
+    color: rgb(75, 75, 75);
+    background-color: #7d8afb;
+}
+
+.btn {
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+    font-size: 15pt;
+    color: rgb(0, 0, 0);
+}
+
+.col-img .card {
+    background-image: url("../assets/image/student.jpg");
+    width: 29rem;
+    height: 38rem;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+@media (max-width: 576px) {
+
+    .col-img .card {
+        display: none;
+    }
+
+    .col-form {
+        background-image: url("../assets/image/student.jpg");
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .form-login h2 {
+
+        font-family: 'Noto Serif', serif;
+        color: rgb(49, 54, 40);
+        size: small;
+
+    }
+
+}
+
+.form-login h2 {
+
+    font-family: 'Noto Serif', serif;
+    font-size: x-large;
+
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');

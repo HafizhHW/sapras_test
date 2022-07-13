@@ -78,7 +78,7 @@
                                             <td class="text-center"><?= $no++ ?></td>
                                             <td><?= $brg->nm_barang ?></td>
                                             <td class="text-center"><?= $brg->no_seri ?></td>
-                                            <td class="text-center"><?= $brg->jml_barang ?></td>
+                                            <td class="text-center"><?= $brg->jml_barang ?>&nbsp;<?= $brg->unit ?></td>
                                             <td class="text-center"><?= $brg->kat_barang ?></td>
                                             <td class="text-center"><?= $brg->kat_anggaran ?></td>
                                             <td class="text-center"><?= $brg->thn_pengadaan ?></td>
