@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 12 Jul 2022 pada 05.45
+-- Waktu pembuatan: 16 Jul 2022 pada 05.50
 -- Versi server: 5.7.18
 -- Versi PHP: 7.4.19
 
@@ -62,7 +62,7 @@ INSERT INTO `files` (`id`, `judul`, `doc`) VALUES
 CREATE TABLE `tbl_admin` (
   `id_admin` int(11) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `pass` varchar(40) NOT NULL,
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -70,8 +70,9 @@ CREATE TABLE `tbl_admin` (
 -- Dumping data untuk tabel `tbl_admin`
 --
 
-INSERT INTO `tbl_admin` (`id_admin`, `username`, `password`, `nama`) VALUES
-(1, 'admin', 'admin123', 'Super Admin');
+INSERT INTO `tbl_admin` (`id_admin`, `username`, `pass`, `nama`) VALUES
+(1, 'admin', 'admin123', 'Super Admin'),
+(2, 'Hafizh31', '2e9a061caff878f97268441f69fec65b', 'Hafizh Hadiayana Wijaya');
 
 -- --------------------------------------------------------
 
@@ -84,6 +85,7 @@ CREATE TABLE `tbl_barang` (
   `nm_barang` varchar(50) NOT NULL,
   `no_seri` varchar(50) DEFAULT NULL,
   `jml_barang` int(11) NOT NULL,
+  `unit` varchar(30) DEFAULT NULL,
   `kat_barang` varchar(50) NOT NULL,
   `kat_anggaran` varchar(50) NOT NULL,
   `thn_pengadaan` date NOT NULL,
@@ -95,19 +97,19 @@ CREATE TABLE `tbl_barang` (
 -- Dumping data untuk tabel `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`id_barang`, `nm_barang`, `no_seri`, `jml_barang`, `kat_barang`, `kat_anggaran`, `thn_pengadaan`, `penempatan`, `doc_barang`) VALUES
-(1, 'Monitor LCD', '0987654321', 50, 'Praktik', 'BOS', '2022-07-01', 'Lab', 'item-220707-2b404bca21.jpg'),
-(2, 'Laptop Lenovo Yoga', 'LN-SMKN1GNR-001', 5, 'Praktik', 'BOS', '2022-06-10', 'Lab', 'item-220707-e206d8b6ef.jpg'),
-(3, 'Mesin Rumput', 'MSN_RP01', 5, 'Cunsumable', 'Sekolah', '2022-06-09', 'Gudang', 'item-220707-d7aebc4ab9.jpg'),
-(4, 'CPU', 'CPU1_SMKN1GNR, CPU2_SMKN1GNR, CPU3_SMKN1GNR', 3, 'Elektronik', 'BOS', '2022-04-08', 'Lab', 'item-220707-ed41f1a1e1.jpg'),
-(20, 'Barang', '', 5, 'Cunsumable', '', '2022-07-01', 'Gudang', NULL),
-(21, 'Barang', 'MTRP01', 5, 'Praktik', 'test', '2022-07-01', 'Gudang', NULL),
-(22, 'mouse', '', 5, 'test', '', '2022-07-01', 'Lab', NULL),
-(23, 'Barang', 'MTRP01', 5, 'Praktik', 'Sekolah', '2022-07-02', 'Test', NULL),
-(24, 'Monitor LCD', '0987654321', 5, 'Praktik', '', '2022-07-01', 'Lab', NULL),
-(25, 'Motor Praktik Honda', '', 5, 'Elektronik', '', '2022-07-01', 'Lab', 'item-220710-63761a083f.jpg'),
-(26, 'Sapu Lidi', '', 5, 'Cunsumable', '', '2022-07-01', 'Gudang', 'item-220710-434544d52c.jpg'),
-(27, 'Monitor LCD', '', 5, 'Praktik', '', '2022-07-01', 'Lab', 'item-220710-02213b452d.jpg');
+INSERT INTO `tbl_barang` (`id_barang`, `nm_barang`, `no_seri`, `jml_barang`, `unit`, `kat_barang`, `kat_anggaran`, `thn_pengadaan`, `penempatan`, `doc_barang`) VALUES
+(1, 'Monitor LCD', '0987654321', 50, NULL, 'Praktik', 'BOS', '2022-07-01', 'Lab', 'item-220707-2b404bca21.jpg'),
+(2, 'Laptop Lenovo Yoga', 'LN-SMKN1GNR-001', 5, 'Pcs', 'Praktik', 'BOS', '2022-06-10', 'Lab', 'item-220707-e206d8b6ef.jpg'),
+(3, 'Mesin Rumput', 'MSN_RP01', 5, NULL, 'Cunsumable', 'Sekolah', '2022-06-09', 'Gudang', 'item-220707-d7aebc4ab9.jpg'),
+(4, 'CPU', 'CPU1_SMKN1GNR, CPU2_SMKN1GNR, CPU3_SMKN1GNR', 3, NULL, 'Elektronik', 'BOS', '2022-04-08', 'Lab', 'item-220707-ed41f1a1e1.jpg'),
+(20, 'Barang', '', 5, NULL, 'Cunsumable', '', '2022-07-01', 'Gudang', NULL),
+(21, 'Barang', 'MTRP01', 5, NULL, 'Praktik', 'test', '2022-07-01', 'Gudang', NULL),
+(22, 'mouse', '', 5, 'Buah', 'test', '', '2022-07-01', 'Lab', NULL),
+(23, 'Barang', 'MTRP01', 5, NULL, 'Praktik', 'Sekolah', '2022-07-02', 'Test', NULL),
+(24, 'Monitor LCD', '0987654321', 5, NULL, 'Praktik', '', '2022-07-01', 'Lab', NULL),
+(25, 'Motor Praktik Honda', '', 5, NULL, 'Elektronik', '', '2022-07-01', 'Lab', 'item-220710-63761a083f.jpg'),
+(26, 'Sapu Lidi', '', 5, NULL, 'Cunsumable', '', '2022-07-01', 'Gudang', 'item-220710-434544d52c.jpg'),
+(27, 'Monitor LCD', '', 5, NULL, 'Praktik', '', '2022-07-01', 'Lab', 'item-220710-02213b452d.jpg');
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ INSERT INTO `tbl_transaksi` (`id_transaksi`, `id_barang`, `tgl_transaksi`, `nm_p
 CREATE TABLE `tbl_user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `pass` varchar(40) NOT NULL,
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -148,8 +150,9 @@ CREATE TABLE `tbl_user` (
 -- Dumping data untuk tabel `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama`) VALUES
-(1, 'user', 'user123', 'User');
+INSERT INTO `tbl_user` (`id_user`, `username`, `pass`, `nama`) VALUES
+(1, 'user', 'user123', 'User'),
+(2, 'Kusno', '07bccaa68a1121ecfe48bdd3138833dc', 'Kusno Rahayu');
 
 --
 -- Indexes for dumped tables
@@ -199,7 +202,7 @@ ALTER TABLE `files`
 -- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_barang`
@@ -217,7 +220,7 @@ ALTER TABLE `tbl_transaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
