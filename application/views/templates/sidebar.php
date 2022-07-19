@@ -156,7 +156,7 @@
 
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="<?php echo base_url('Project') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Project') echo 'active' ?>">
                                     <!-- <i class="fas fa-fw fa-users"></i> -->
                                     <i class="fas fa-fw fa-project-diagram"></i>
 
@@ -167,6 +167,18 @@
                                 </a>
                             </li>
                         <?php } ?>
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('Arsip') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Arsip') echo 'active' ?>">
+                                <!-- <i class="fas fa-fw fa-users"></i> -->
+                                <i class="fas fa-fw fa-archive"></i>
+
+                                <p>
+                                    Dokumen
+                                    <!-- <span class="right badge badge-danger">New</span> -->
+                                </p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="<?php echo base_url('Auth/Logout') ?>" class="nav-link">
