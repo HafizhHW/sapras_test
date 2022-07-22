@@ -73,7 +73,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($barang as $brg) : ?>
+                                    foreach ($join as $brg) : ?>
                                         <tr>
                                             <td class="text-center"><?= $no++ ?></td>
                                             <td><?= $brg->nm_barang ?></td>
@@ -82,7 +82,7 @@
                                             <td class="text-center"><?= $brg->kat_barang ?></td>
                                             <td class="text-center"><?= $brg->kat_anggaran ?></td>
                                             <td class="text-center"><?= $brg->thn_pengadaan ?></td>
-                                            <td class="text-center"><?= $brg->penempatan ?></td>
+                                            <td class="text-center"><?= $brg->nm_tempat ?></td>
                                             <!-- <td class="text-center">
                                                 <a href="<?php echo base_url() . 'Barang/download/' . $brg->id_barang; ?>" class="btn btn-warning btn-sm float-center" title="unduh"><i class="fa-solid fa-cloud-arrow-down"></i></a>
                                             </td> -->

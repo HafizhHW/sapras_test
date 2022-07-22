@@ -14,7 +14,7 @@ class Barang extends CI_Controller
   {
     $data['title'] = "Barang";
     $data['judul'] = "Data Barang";
-
+    $data['join'] = $this->Barang_model->get_join('tbl_barang');
     $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
@@ -27,7 +27,9 @@ class Barang extends CI_Controller
     $data['title'] = "Barang";
     $data['judul'] = "Data Barang";
     $data['error'] = '';
+    $data['join'] = $this->Barang_model->get_join('tbl_barang');
     $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/Add_barang', $data);
@@ -139,6 +141,7 @@ class Barang extends CI_Controller
         // var_dump($this->add_barang($error));
         // echo "Gagal Tambah !";
         $error = array('error' => $this->upload->display_errors());
+
         $this->session->set_flashdata($error);
         redirect('Barang/add_barang');
       } else {
@@ -153,7 +156,7 @@ class Barang extends CI_Controller
         $kat_barang = $this->input->post('kat_barang', TRUE);
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
-        $penempatan = $this->input->post('penempatan', TRUE);
+        $id_tempat = $this->input->post('id_tempat', TRUE);
 
         $data = array(
           'nm_barang' => $nm_barang,
@@ -163,7 +166,7 @@ class Barang extends CI_Controller
           'kat_barang' => $kat_barang,
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
-          'penempatan' => $penempatan,
+          'id_tempat' => $id_tempat,
           'doc_barang' => $dokumen
         );
         $this->Barang_model->insert_data($data, 'tbl_barang');
@@ -529,7 +532,7 @@ class Barang extends CI_Controller
     $this->form_validation->set_rules('jml_barang', 'Jumlah Barang', 'required', array('required' => '%s harus diisi !!!'));
     $this->form_validation->set_rules('kat_barang', 'Jenis Anggaran', 'required', array('required' => '%s harus diisi !!!'));
     $this->form_validation->set_rules('thn_pengadaan', 'Tahun Pengadaan', 'required', array('required' => '%s harus diisi !!!'));
-    $this->form_validation->set_rules('penempatan', 'penempatan', 'required', array('required' => '%s harus diisi !!!'));
+    $this->form_validation->set_rules('id_tempat', 'Penempatan', 'required', array('required' => '%s harus diisi !!!'));
     // $this->form_validation->set_rules('doc_barang', 'Dokumen', '', 'callback_validate_file');
     // $this->form_validation->set_rules('doc_barang', 'Dokumen', '', 'callback_file_check');
   }

@@ -29,12 +29,13 @@
                                      <h5 class="text-left">Tebel Admin</h5>
                                  </div>
                                  <div class="col-2 col-md-2 col-sm-2 float-right ">
-                                     <a class="btn btn-sm btn-success float-right  mx-auto" href="#" role="button"><i class="fa-solid fa-file-circle-plus"></i></a>
+                                     <a class="btn btn-sm btn-success float-right  mx-auto" href="<?= base_url('User/add_admin') ?>" role="button"><i class="fa-solid fa-file-circle-plus"></i></a>
                                  </div>
                              </div>
                          </div>
                          <!-- /.card-header -->
                          <div class="card-body">
+
                              <table class="table table-bordered">
                                  <thead>
                                      <tr>
@@ -59,6 +60,7 @@
                                      <?php endforeach ?>
                                  </tbody>
                              </table>
+
                          </div>
                          <!-- /.card-body -->
                          <div class="card-footer clearfix">

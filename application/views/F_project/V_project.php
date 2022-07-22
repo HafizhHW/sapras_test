@@ -28,7 +28,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-8 col-md-8 col-sm-8">
-                                    <h3 class="text-left">Tebel Transaksi</h3>
+                                    <h3 class="text-left">Data Project</h3>
                                     <!-- <span>
                                         <h3>Form edit Document blm diganti->Upload</h3>
                                     </span> -->
@@ -36,7 +36,7 @@
                                 <div class="col-4 col-md-4 col-sm-4  ">
                                     <?php if ($this->session->userdata('akses') == '1') { ?>
                                         <div class="btn-group btn-group-md float-right">
-                                            <a class="btn btn-md btn-success mx-auto" data-toggle="" data-target="" href="<?= base_url('Transaksi/Add_transaksi') ?>" title="tambah barang" role="button"><i class="fa-solid fa-file-circle-plus"></i></a>
+                                            <a class="btn btn-md btn-success mx-auto" data-toggle="" data-target="" href="<?= base_url('Project/add_project') ?>" title="tambah barang" role="button"><i class="fa-solid fa-file-circle-plus"></i></a>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -64,7 +64,7 @@
                                             <td class="text-center"><?= $pro->tgl_project ?></td>
                                             <td class="text-center">
                                                 <?php if (!empty($pro->doc_project)) {
-                                                    echo '<a href="' . base_url('Barang/download/' . $pro->id_project) . 'Barang/download/"' . $pro->id_project . ' class="btn btn-warning btn-sm float-center" title="unduh">
+                                                    echo '<a href="' . base_url('Project/download/' . $pro->id_project) . 'Project/download/"' . $pro->id_project . ' class="btn btn-warning btn-sm float-center" title="unduh">
                                                     <i class="fa-solid fa-cloud-arrow-down"></i></a>';
                                                 } else {
                                                     echo "Tidak Memiliki Dokumen";
