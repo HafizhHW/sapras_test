@@ -52,8 +52,8 @@
                                              <td><?= $adm->nama ?></td>
                                              <td>
                                                  <div class="btn-group btn-group-sm d-flex justify-content-center">
-                                                     <a href="" class="btn btn-success "><i class="fas fa-edit"></i></a>
-                                                     <a href="" class="btn btn-danger "><i class="fas fa-trash"></i></a>
+                                                     <a href="<?= base_url('User/'); ?>" class="btn btn-success "><i class="fas fa-edit"></i></a>
+                                                     <a href="<?= base_url('User/delete_admin/' . $adm->id_admin) ?>" class="btn btn-danger" title="hapus"><i class="fa-solid fa-trash-can" onclick="return confirm('Apakah anda yakin menghapus data ini?')"></i></a>
                                                  </div>
                                              </td>
                                          </tr>

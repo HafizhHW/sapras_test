@@ -37,6 +37,33 @@ class User extends CI_Controller
 
   function addAdmin_act()
   {
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+      $this->add_admin();
+    } else {
+      $id = $this->input->post('id_admin');
+      $uname = $this->input->post('username');
+      $nama = $this->input->post('nama');
+      $pass = $this->input->post('pass');
+
+      $data = [
+        'id_admin' => $id,
+        'username' => $uname,
+        'nama' => $nama,
+        'pass' => MD5($pass)
+      ];
+
+      $this->User_model->insert_data($data, 'tbl_admin');
+
+      redirect('User');
+    }
+  }
+
+  function delete_admin($id)
+  {
+    $where = array('id_admin' => $id);
+    $this->User_model->delete_data($where, 'tbl_admin');
+    redirect('User');
   }
 
   function _rules()

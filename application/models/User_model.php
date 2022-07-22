@@ -16,14 +16,25 @@ class User_model extends CI_Model
 
 
   // ------------------------------------------------------------------------
-  public function get_data_admin($table)
+  function get_data_admin($table)
   {
     return $this->db->get($table);
   }
 
-  public function get_data_user($table)
+  function get_data_user($table)
   {
     return $this->db->get($table);
+  }
+
+  function insert_data($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
+  function delete_data($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
   }
 
   // ------------------------------------------------------------------------
