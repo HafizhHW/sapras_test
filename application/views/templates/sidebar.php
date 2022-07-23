@@ -26,16 +26,14 @@
                             <i class="fas fa-user-circle fa-fw"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <!-- <? //php if ($this->session->userdata('akses') == '1') { 
-                                    ?> -->
+
                             <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
-                                                    ?>" href="<? //php echo base_url('index.php/user') 
+                                                    ?>" href="<?php echo base_url('Auth/set_profile')
                                                                 ?>">
                                 <i class="fas fa-fw fa-user-tie"></i> Profile</a>
                             <div class="dropdown-divider"></div>
-                            <!-- <? //php } 
-                                    ?> -->
-                            <a class="dropdown-item" href="<?php echo base_url('Auth/Logout') ?>" data-toggle="modal" data-target="#logoutModal">
+
+                            <a class="dropdown-item" href="<?php echo base_url('Auth/Logout') ?>">
                                 <i class="fas fa-fw fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </a>

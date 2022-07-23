@@ -8,10 +8,12 @@ class User extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    check_not_login();
   }
 
   public function index()
   {
+
     $data['title'] = "User";
     $data['judul'] = "Data User";
     $data['error'] = '';
@@ -32,6 +34,18 @@ class User extends CI_Controller
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_user/V_AddAdmin', $data);
+    $this->load->view('templates/footer');
+  }
+
+  function add_user()
+  {
+    $data['title'] = "User";
+    $data['judul'] = "Data User";
+    $data['error'] = '';
+    $data['admin'] = $this->User_model->get_data_user('tbl_user')->result();
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_user/V_AddUser', $data);
     $this->load->view('templates/footer');
   }
 
@@ -59,10 +73,41 @@ class User extends CI_Controller
     }
   }
 
+  function addUser_act()
+  {
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+      $this->add_admin();
+    } else {
+      $id = $this->input->post('id_user');
+      $uname = $this->input->post('username');
+      $nama = $this->input->post('nama');
+      $pass = $this->input->post('pass');
+
+      $data = [
+        'id_user' => $id,
+        'username' => $uname,
+        'nama' => $nama,
+        'pass' => MD5($pass)
+      ];
+
+      $this->User_model->insert_data($data, 'tbl_user');
+
+      redirect('User');
+    }
+  }
+
   function delete_admin($id)
   {
     $where = array('id_admin' => $id);
-    $this->User_model->delete_data($where, 'tbl_admin');
+    $this->User_model->delete_dataAdmin($where, 'tbl_admin');
+    redirect('User');
+  }
+
+  function delete_user($id)
+  {
+    $where = array('id_user' => $id);
+    $this->User_model->delete_dataUser($where, 'tbl_user');
     redirect('User');
   }
 

@@ -8,10 +8,12 @@ class Barang extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    check_not_login();
   }
 
   public function index()
   {
+
     $data['title'] = "Barang";
     $data['judul'] = "Data Barang";
     $data['join'] = $this->Barang_model->get_join('tbl_barang');

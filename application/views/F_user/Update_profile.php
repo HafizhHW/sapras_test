@@ -33,17 +33,17 @@
                     <!-- <?= $this->session->flashdata('pesan'); ?> -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Admin</h3>
+                            <h3 class="card-title">Edit Profile</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
 
-                        <?php echo form_open_multipart('User/addAdmin_Act'); ?>
+                        <?php echo form_open_multipart('Auth/update_profile'); ?>
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Nama </label>
                                 <div class="col-xs-8">
-                                    <input type="text" name="nama" class="form-control" placeholder="Nama Anda">
+                                    <input type="text" name="nama" class="form-control" value="<?= $this->session->userdata("ses_nama") ?>" readonly>
                                     <div class="text-danger"><?php echo form_error('nama'); ?></div>
                                 </div>
                             </div>
@@ -51,19 +51,37 @@
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Username </label>
                                 <div class="col-xs-8">
-                                    <input type="text" name="username" class="form-control" placeholder="Username">
+                                    <input type="text" name="username" class="form-control" value="<?= $this->session->userdata("ses_username") ?>">
                                     <div class="text-danger"><?php echo form_error('username'); ?></div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="control-label col-xs-3 required"> Password </label>
+                            <!-- <div class="form-group">
+                                <label class="control-label col-xs-3 required">Current Password </label>
                                 <div class="col-xs-8">
-                                    <input type="password" name="pass" class="form-control" placeholder="Nama123$" id="pass">
+                                    <input type="password" name="pass" class="form-control" id="current_password">
                                     <div class="text-danger"><?php echo form_error('pass'); ?></div>
                                     <div id="message"></div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-3 required">New Password </label>
+                                <div class="col-xs-8">
+                                    <input type="password" name="new_pass" class="form-control" id="new_password1">
+                                    <div class="text-danger"><?php echo form_error('pass'); ?></div>
+                                    <div id="message"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-3 required">Repeat Password </label>
+                                <div class="col-xs-8">
+                                    <input type="password" name="pass" class="form-control" id="new_password2">
+                                    <div class="text-danger"><?php echo form_error('pass'); ?></div>
+                                    <div id="message"></div>
+                                </div>
+                            </div> -->
 
                             <!-- bisa untuk foto -->
 
@@ -93,11 +111,9 @@
 
                         <div class="card-footer">
                             <div class="btn float-right">
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Reset</button> -->
-                                <button type="reset" class="btn btn-sm btn-warning"><i class="fa-solid fa-arrow-rotate-left"></i>Reset</button>
-                                <button type="submit" class="btn btn-sm btn-success"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
-                                <!-- <a class="btn btn-sm btn-danger" type="reset"><i class="fa-solid fa-arrow-rotate-left"></i> Reset </a>
-                                        <a class="btn btn-sm btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i> Simpan </a> -->
+
+                                <button type="submit" class="btn btn-sm btn-success"><i class="fa-solid fa-floppy-disk"></i> Update</button>
+
                             </div>
                         </div>
                         <?php echo form_close(); ?>

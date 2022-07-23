@@ -31,10 +31,24 @@ class User_model extends CI_Model
     $this->db->insert($table, $data);
   }
 
-  function delete_data($where, $table)
+  function delete_dataAdmin($where, $table)
   {
     $this->db->where($where);
     $this->db->delete($table);
+  }
+
+  function delete_dataUser($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
+
+  public function get_data_login()
+  {
+    return $this->db->from('tbl_admin')
+      ->join('tbl_user', 'tbl_user.id_user=tbl_admin.id_admin')
+      ->get()
+      ->result();
   }
 
   // ------------------------------------------------------------------------

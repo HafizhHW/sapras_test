@@ -33,43 +33,58 @@
                     <!-- <?= $this->session->flashdata('pesan'); ?> -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Dokumen</h3>
+                            <h3 class="card-title">Tambah User</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
 
-                        <?php echo form_open_multipart('Arsip/add_act'); ?>
+                        <?php echo form_open_multipart('User/addUser_Act'); ?>
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="control-label col-xs-3 required"> Nama Dokumen </label>
+                                <label class="control-label col-xs-3 required"> Nama </label>
                                 <div class="col-xs-8">
-                                    <input type="text" name="nm_arsip" class="form-control" placeholder="">
-                                    <div class="text-danger"><?php echo form_error('nm_arsip'); ?></div>
+                                    <input type="text" name="nama" class="form-control" placeholder="Nama Anda">
+                                    <div class="text-danger"><?php echo form_error('nama'); ?></div>
                                 </div>
                             </div>
 
                             <div class="form-group">
+                                <label class="control-label col-xs-3 required"> Username </label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="username" class="form-control" placeholder="Username">
+                                    <div class="text-danger"><?php echo form_error('username'); ?></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-3 required"> Password </label>
+                                <div class="col-xs-8">
+                                    <input type="password" name="pass" class="form-control" placeholder="Nama123$" id="pass">
+                                    <div class="text-danger"><?php echo form_error('pass'); ?></div>
+                                    <div id="message"></div>
+                                </div>
+                            </div>
+
+                            <!-- bisa untuk foto -->
+
+                            <!-- <div class="form-group">
                                 <label class="control-label col-xs-3"> Dokumen</label>
                                 <div class="col-xs-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile03" name="doc_arsip">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
-                                    </div>
-                                    <!-- <input type="file" name="doc_arsip" class="form-control" placeholder="Pilih File" id="file" accept=".pdf,.doc,.docx"> -->
+                                    <input type="file" name="foto" class="form-control" placeholder="Pilih File" id="file" accept=".pdf,.doc,.docx">
                                     <small class="text-danger">
                                         <div class="text-danger"><?php echo form_error('doc_arsip'); ?></div>
 
-                                        <?php if ($project = ('doc_arsip')) {
+                                        <?php if ($project = ('foto')) {
                                             echo $this->session->flashdata('error');
                                         }
                                         ?>
                                     </small><br>
 
 
-                                    <small>File type : pdf, doc, docx, xls, xlsx, jpg, jpeg, png</small><br>
+                                    <small>File type : jpg, jpeg, png</small><br>
                                     <small>Max size : 3Mb</small>
                                 </div>
-                            </div>
+                            </div> -->
 
 
 
