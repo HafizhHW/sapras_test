@@ -22,11 +22,11 @@ class Auth extends CI_Controller
   //   $this->load->view('Login');
   // }
 
-  function Log_act()
+  public function Log_act()
   {
     $this->_rules();
     if ($this->form_validation->run() == FALSE) {
-      $this->load->view('Login');
+      $this->index();
     } else {
       $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
       $password = htmlspecialchars($this->input->post('pass', TRUE), ENT_QUOTES);
@@ -81,14 +81,48 @@ class Auth extends CI_Controller
   public function update_profile($id)
   {
     $id = $this->input->post($this->session->userdata('sess_id'));
-    $nama = $this->input->post('nama');
-    $username = $this->input->post('username');
+    // print_r($id);
+    // die();
 
-    $data = [
-      'nama' => $nama,
-      'username' => $username
-    ];
-    $this->db->where($id,);
+    if (!$this->session->userdata('akses', '2')) {
+
+      $nama = $this->input->post('nama');
+      $username = $this->input->post('username');
+
+      $data = [
+        'nama' => $nama,
+        'username' => $username
+      ];
+      $this->db->where('id_admin', $id);
+      $this->db->update('tbl_admin', $data);
+      $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Data Berhasil Di Ubah !
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+      redirect('Auth/set_profile');
+    } else {
+      $nama = $this->input->post('nama');
+      $username = $this->input->post('username');
+
+      $data = [
+        'nama' => $nama,
+        'username' => $username
+      ];
+
+      $this->db->where('id_user', $id);
+      $this->db->update('tbl_user', $data);
+      $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Data Berhasil Di Ubah !
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+      redirect('Auth/set_profile');
+    }
   }
 
   public function _rules()

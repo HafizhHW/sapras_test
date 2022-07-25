@@ -77,7 +77,7 @@ class User extends CI_Controller
   {
     $this->_rules();
     if ($this->form_validation->run() == FALSE) {
-      $this->add_admin();
+      $this->add_user();
     } else {
       $id = $this->input->post('id_user');
       $uname = $this->input->post('username');
@@ -114,7 +114,7 @@ class User extends CI_Controller
   function _rules()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required', array('required' => '%s harus diisi !!!'));
-    $this->form_validation->set_rules('username', 'Username', 'required', array('required' => '%s harus diisi !!!'));
+    $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric|min_length[6]|is_unique', array('required' => '%s harus diisi !!!'));
     $this->form_validation->set_rules('pass', 'Password', 'required', array('required' => '%s harus diisi !!!'));
   }
 }

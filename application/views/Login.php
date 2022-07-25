@@ -48,8 +48,8 @@
                             <?php echo form_open_multipart("Auth/Log_act"); ?>
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="username" class="form-control border-2 rounded-pill" id="floatingInput" placeholder="Username">
-                                <label for="floatingInput">Username</label>
+                                <input type="text" name="username" class="form-control border-2 rounded-pill" id="floatingInput" placeholder="Username" ">
+                                <label for=" floatingInput">Username</label>
                                 <div class="text-danger"><?php echo form_error('username'); ?></div>
                             </div>
 
