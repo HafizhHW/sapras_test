@@ -46,7 +46,7 @@
                             <h2 class="text-center mb-3">Silahkan Masuk !</h2>
 
                             <?php echo form_open_multipart("Auth/Log_act"); ?>
-
+                            <!-- <form action="<?= base_url('Auth/Log_act') ?>" method="post"> -->
                             <div class="form-floating mb-3">
                                 <input type="text" name="username" class="form-control border-2 rounded-pill" id="floatingInput" placeholder="Username" ">
                                 <label for=" floatingInput">Username</label>
@@ -62,7 +62,7 @@
                             <div class="d-grid gap-2 col-4 mx-auto">
                                 <button class="btn btn-outline-dark border-2 rounded-pill" type="submit" name="login">Login</button>
                             </div>
-
+                            <!-- </form> -->
                             <?php echo form_close() ?>
                             <hr class="" style="height:2px;border-width:0;color:gray;">
                         </div>

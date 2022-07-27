@@ -44,7 +44,10 @@ class Barang extends CI_Controller
     $data['judul'] = "Data Barang";
     $data['error'] = '';
     $where = array('id_barang' => $id_barang);
+    $data['join'] = $this->Barang_model->get_join('tbl_barang');
+    // $data['join'] = $this->Barang_model->get_joinUpdate($where, 'tbl_barang');
     $data['barang'] =  $this->Barang_model->update($where, 'tbl_barang')->result();
+    $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/Update_barang', $data);
@@ -418,7 +421,7 @@ class Barang extends CI_Controller
         $kat_barang = $this->input->post('kat_barang', TRUE);
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
-        $penempatan = $this->input->post('penempatan', TRUE);
+        $id_tempat = $this->input->post('id_tempat', TRUE);
         // $doc_barang = $this->input->post('doc_barang', TRUE);
 
         $data = array(
@@ -429,7 +432,7 @@ class Barang extends CI_Controller
           'kat_barang' => $kat_barang,
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
-          'penempatan' => $penempatan,
+          'id_tempat' => $id_tempat,
           // 'doc_barang' => $doc_barang
         );
         // var_dump($this->upload->display_errors());
@@ -466,7 +469,7 @@ class Barang extends CI_Controller
         $kat_barang = $this->input->post('kat_barang', TRUE);
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
-        $penempatan = $this->input->post('penempatan', TRUE);
+        $id_tempat = $this->input->post('id_tempat', TRUE);
 
         $data = array(
           'nm_barang' => $nm_barang,
@@ -475,7 +478,7 @@ class Barang extends CI_Controller
           'kat_barang' => $kat_barang,
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
-          'penempatan' => $penempatan,
+          'id_tempat' => $id_tempat,
           'doc_barang' => $dokumen
         );
         // $this->Barang_model->update_barang($data);

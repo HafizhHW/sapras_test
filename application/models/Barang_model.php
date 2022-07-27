@@ -30,6 +30,15 @@ class Barang_model extends CI_Model
     $data = $this->db->get('');
     return $data->result();
   }
+  public function get_joinUpdate($where, $table)
+  {
+    $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat']);
+    $this->db->from('tbl_barang b');
+    $this->db->join('tbl_tempat tp', 'b.id_tempat = tp.id_tempat');
+    // $this->db->join('tbl_barang b', 't.id_barang = b.id_barang');
+    $data = $this->db->get_where($table, $where);
+    return $data->result();
+  }
 
   public function getDataById($id_barang)
   {
@@ -79,6 +88,16 @@ class Barang_model extends CI_Model
   function get_tempat($table)
   {
     return $this->db->get($table);
+  }
+
+  function getBarang_tempat($id_tempat)
+  {
+    $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat']);
+    $this->db->from('tbl_barang b');
+    $this->db->join('tbl_tempat tp', 'b.id_tempat = tp.id_tempat');
+    $this->db->where('tp.id_tempat', $id_tempat);
+    $data = $this->db->get('');
+    return $data->result();
   }
   // ------------------------------------------------------------------------
 

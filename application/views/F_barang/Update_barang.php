@@ -103,19 +103,35 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-xs-3 required"> Penempatan </span></label>
-                                    <div class="col-xs-8">
-                                        <input type="text" name="penempatan" class="form-control" value="<?= $brg->penempatan ?>">
-                                        <div class="alert-danger"><?php echo form_error('penempatan'); ?></div>
-                                    </div>
+                                <label class="control-label col-xs-3 required"> Penempatan </span></label>
+                                <div class="input-group">
+
+                                    <select class="custom-select" id="inputGroupSelect04" name="id_tempat" required>
+                                        <option value="<?= $brg->id_tempat ?>">Pilih Tempat</option>
+                                        <?php foreach ($tempat as $t) {
+                                            echo "<option value=" . $t->id_tempat . ">" . $t->nm_tempat . "</option>";
+                                        } ?>
+
+                                    </select>
+
+                                    <?php if ($this->session->userdata('akses') == '1') { ?>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></button>
+                                        </div>
+                                    <?php } ?>
+
+
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group mt-3">
                                     <label class="control-label col-xs-3"> Dokumen</label>
                                     <div class="col-xs-8">
                                         <!-- <input type="hidden" name="old_doc_barang" class="form-control" value="<?= $brg->doc_barang ?>"> -->
-                                        <input type="file" name="doc_barang" class="form-control">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile03" name="doc_barang">
+                                            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        </div>
+                                        <!-- <input type="file" name="doc_barang" class="form-control"> -->
                                         <div class="alert-danger"><?php echo form_error('doc_barang'); ?></div>
                                         <?php echo $this->session->flashdata('error'); ?>
                                         <small>File type : pdf, doc, docx, xls, xlsx, jpg, jpeg, png</small><br>

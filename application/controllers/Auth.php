@@ -24,6 +24,7 @@ class Auth extends CI_Controller
 
   public function Log_act()
   {
+    // check_already_login();
     $this->_rules();
     if ($this->form_validation->run() == FALSE) {
       $this->index();
@@ -81,10 +82,11 @@ class Auth extends CI_Controller
   public function update_profile($id)
   {
     $id = $this->input->post($this->session->userdata('sess_id'));
+    // $id = $this->input->post($this->session->userdata('akses', '1'));
     // print_r($id);
     // die();
 
-    if (!$this->session->userdata('akses', '2')) {
+    if ($this->session->userdata('akses', '1')) {
 
       $nama = $this->input->post('nama');
       $username = $this->input->post('username');

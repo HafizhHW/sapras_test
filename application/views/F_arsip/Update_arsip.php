@@ -56,7 +56,11 @@
                                 <div class="form-group">
                                     <label class="control-label col-xs-3"> Dokumen</label>
                                     <div class="col-xs-8">
-                                        <input type="file" name="doc_arsip" class="form-control" value="<?= $a->doc_arsip ?>" id="file" accept=".pdf,.doc,.docx">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile03" name="doc_arsip" value="<?= $a->doc_arsip ?>">
+                                            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        </div>
+                                        <!-- <input type="file" name="doc_arsip" class="form-control"  id="file" accept=".pdf,.doc,.docx"> -->
                                         <small class="text-danger">
                                             <div class="text-danger"><?php echo form_error('doc_arsip'); ?></div>
 

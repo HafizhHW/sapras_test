@@ -64,7 +64,11 @@
                                 <div class="form-group">
                                     <label class="control-label col-xs-3"> Dokumen</label>
                                     <div class="col-xs-8">
-                                        <input type="file" name="doc_project" class="form-control" value="<?= $p->doc_project ?>" id="file" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx,.xls,.xlsx">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile03" name="doc_project" value="<?= $p->doc_project ?>">
+                                            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        </div>
+                                        <!-- <input type="file" name="doc_project" class="form-control" value="<?= $p->doc_project ?>" id="file" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx,.xls,.xlsx"> -->
                                         <small class="text-danger">
                                             <div class="text-danger"><?php echo form_error('doc_project'); ?></div>
 
