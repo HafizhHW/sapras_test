@@ -48,6 +48,7 @@
                                     <tr>
                                         <th style="width: 20px" class="text-center">No</th>
                                         <th style="width: 100px; margin:0 auto; text-align:center;">Nama Barang</th>
+                                        <th class="text-center">Jumlah Barang</th>
                                         <th style="width: 100px; margin:0 auto; text-align:center;">Tanggal Transaksi</th>
                                         <th class="text-center">Nama Penerima</th>
                                         <th class="text-center">Keterangan</th>
@@ -57,25 +58,22 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($transaksi as $trs) : ?>
+                                    foreach ($join as $trs) : ?>
                                         <tr>
                                             <td class="text-center"><?= $no++ ?></td>
                                             <td class="text-center"><?= $trs->nm_barang ?></td>
+                                            <td class="text-center"><?= $trs->jml_barang ?>&nbsp;<?= $trs->unit ?></td>
                                             <td class="text-center"><?= $trs->tgl_transaksi ?></td>
                                             <td class="text-center"><?= $trs->nm_penerima ?></td>
                                             <td class="text-center"><?= $trs->keterangan ?></td>
-                                            <td class="text-center"><?= $trs->nama ?></td>
+                                            <td class="text-center"><?= $trs->nama  ?></td>
 
                                             <td class="text-center">
                                                 <div class="btn-group btn-group-md ">
                                                     <!-- <button class="btn btn-success" title="edit" data-toggle="modal" data-target="#tambah_barang<?= $brg->id_barang ?>"><i class="fas fa-edit"></i></button> -->
-                                                    <!-- <a href="<?= base_url('Transaksi/edit_barang/' . $trs->id_transaksi) ?>" class="btn btn-info" title="edit"> -->
-                                                    <i class="fa-solid fa-edit"></i>
-                                                    <!-- </a> -->
+                                                    <a href="<?= base_url('Transaksi/edit_transaksi/' . $trs->id_transaksi) ?>" class="btn btn-info" title="edit"><i class="fa-solid fa-edit"></i></a>
 
-                                                    <!-- <a href="<?= base_url('Transaksi/delete_brg/' . $brg->id_transaksi) ?>" class="btn btn-danger" title="hapus"> -->
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                    <!-- </a> -->
+                                                    <a href="<?= base_url('Transaksi/delete_transaksi/' . $trs->id_transaksi) ?>" class="btn btn-danger" title="hapus"><i class="fa-solid fa-trash-can" onclick="return confirm('Apakah anda yakin menghapus data ini?')"></i></a>
 
                                                 </div>
 

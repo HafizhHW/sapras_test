@@ -61,6 +61,25 @@
                             </div>
 
                             <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label class="control-label col-xs-3 required"> Jumlah Barang </label>
+                                        <div class="col-xs-8">
+                                            <input type="text" name="jml_barang" class="form-control" placeholder="Jumlah Barang">
+                                            <div class="alert-danger"><?php echo form_error('jml_barang'); ?></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label class="control-label col-xs-3"> Unit </label>
+                                        <div class="col-xs-8">
+                                            <input type="text" name="unit" class="form-control" placeholder="PCS">
+                                            <div class="alert-danger"><?php echo form_error('unit'); ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Tanggal Transaksi </label>
                                 <div class="col-xs-8">
                                     <input type="date" name="tgl_transaksi" class="form-control" placeholder="Tanggal Transaksi">

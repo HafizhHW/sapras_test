@@ -17,7 +17,10 @@ class Transaksi extends CI_Controller
     $data['title'] = "Transaksi";
     $data['judul'] = "Data Transaksi";
 
-    $data['transaksi'] = $this->Transaksi_model->get_joinData('tbl_trasnsaksi');
+    $data['join'] = $this->Transaksi_model->get_joinData('tbl_transaksi');
+    // $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    // $data['transaksi'] = $this->Transaksi_model->get_data('tbl_transaksi')->result();
+    // var_dump($data['join']);
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_transaksi/V_transaksi', $data);
@@ -30,7 +33,7 @@ class Transaksi extends CI_Controller
     $data['judul'] = "Data Transaksi";
 
     $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
-    $data['transaksi'] = $this->Transaksi_model->get_joinData('tbl_trasnsaksi');
+    $data['transaksi'] = $this->Transaksi_model->get_joinData('tbl_transaksi');
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_transaksi/Add_transaksi', $data);
