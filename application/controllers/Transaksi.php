@@ -18,8 +18,6 @@ class Transaksi extends CI_Controller
     $data['judul'] = "Data Transaksi";
 
     $data['join'] = $this->Transaksi_model->get_joinData('tbl_transaksi');
-    // $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
-    // $data['transaksi'] = $this->Transaksi_model->get_data('tbl_transaksi')->result();
     // var_dump($data['join']);
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
