@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-4 col-md-4 col-sm-4  ">
                                     <div class="btn-group btn-group-md float-right">
-                                        <a class="btn btn-md btn-success mx-auto" data-toggle="" data-target="" href="<?= base_url('Transaksi/Add_transaksi') ?>" title="tambah barang" role="button"><i class="fa-solid fa-file-circle-plus"></i></a>
+                                        <a class="btn btn-md btn-success mx-auto" data-toggle="" data-target="" href="<?= base_url('Transaksi/add_transaksi') ?>" title="tambah barang" role="button"><i class="fa-solid fa-file-circle-plus"></i></a>
                                         <a class="btn btn-md btn-info mx-auto" href="" onclick="window.open('pdf')" title="cetak"><i class="fa-solid fa-print"></i></a>
                                     </div>
                                 </div>

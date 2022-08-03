@@ -1,4 +1,10 @@
 <body class="hold-transition sidebar-mini">
+    <style>
+        .required:after {
+            content: " *";
+            color: red;
+        }
+    </style>
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -146,7 +152,7 @@
                                     <!-- <i class="fa-regular fa-users-gear"></i> -->
 
                                     <p>
-                                        Data User
+                                        Admin
                                         <!-- <span class="right badge badge-danger">New</span> -->
                                     </p>
                                 </a>

@@ -56,6 +56,33 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col col-md-3">
+                                    <?php if ($this->session->userdata('akses') == '1') { ?>
+                                        <div class="input-group">
+
+                                            <select class="custom-select" id="inputGroupSelect04" name="id_tempat">
+                                                <option value="">Pilih Tempat</option>
+                                                <?php foreach ($tempat as $t) {
+                                                    echo "<option value=" . $t->id_tempat . ">" . $t->nm_tempat . "</option>";
+                                                } ?>
+                                            </select>
+
+
+
+                                        </div>
+                                        <!-- <div class="input-group-append"> -->
+
+                                        <!-- </div> -->
+                                </div>
+                                <div class="col col-md-2">
+                                    <a href="<?= base_url('Barang/filter/') ?>" class="btn btn-outline-success" title="search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+                                </div>
+                            <?php } ?>
+
+                            </div>
+
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -123,7 +150,7 @@
         <!-- /.container-fluid -->
 
         <!-- === MODAL TAMBAH BARANG ==== -->
-        <?php foreach ($barang as $brg) { ?>
+        <!-- <?php foreach ($barang as $brg) { ?>
             <div class="modal fade" id="tambah_barang<?= $brg->id_barang ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -221,8 +248,8 @@
                     </div>
                 </div>
             </div>
-            <!-- /.modal-dialog -->
-        <?php } ?>
+            /.modal-dialog
+        <?php } ?> -->
         <!-- === END MODAL TAMBAH BARANG === -->
     </section>
     <!-- /.content -->

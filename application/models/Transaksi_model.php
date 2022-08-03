@@ -25,6 +25,11 @@ class Transaksi_model extends CI_Model
     return $this->db->get($table);
   }
 
+  function insert_data($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
   public function get_joinData($table)
   {
     $this->db->select([

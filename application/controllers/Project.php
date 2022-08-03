@@ -81,6 +81,13 @@ class Project extends CI_Controller
           $this->Project_model->insert_data($data, 'tbl_project');
           $error = array('error' => $this->upload->display_errors());
           $this->session->set_flashdata($error);
+          $this->session->set_flashdata('pesan', '
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data Berhasil Di Tambahkan !
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>');
           redirect('Project');
         } else {
           $nm_project = $this->input->post('nm_project', TRUE);

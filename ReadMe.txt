@@ -1,0 +1,11 @@
+Minus masih banyak
+- Print barang berdasarkan tempat
+    - Apakah tempat perlu di buatkan table kembali..?
+    - Saat ini sudah ada tbl_tempat, hanya saja belum di tampilkan di menu admin. dan belum bisa menambahkan tempat.
+- Pagination pada menu admin
+- Belum bisa crud transaksi barang
+- Belum bisa crud barang rusak
+- Belum bisa kurang(trigger) stok pada tbl_transaksi, tbl_barang, tbl_barang_rusak
+- Belum bisa validasi saat upload document
+    - saat form file/dokumen kosong tidak melakukan validsai.
+    - saat form file/dokumen terisi harus melakukan validasi dari types file(pdf|jpg|png|jpeg) dan max_size (3Mb)

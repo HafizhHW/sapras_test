@@ -1,9 +1,3 @@
-<style>
-    .required:after {
-        content: " *";
-        color: red;
-    }
-</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -38,7 +32,7 @@
                         <!-- /.card-header -->
                         <!-- form start -->
 
-                        <?php echo form_open_multipart('Barang/add_act'); ?>
+                        <?php echo form_open_multipart('Transaksi/add_act'); ?>
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Nama Barang </label>
@@ -96,7 +90,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-xs-3 required"> Keterangan </label>
+                                <label class="control-label col-xs-3"> Keterangan </label>
                                 <div class="col-xs-8">
                                     <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
                                     <div class="alert-danger"><?php echo form_error('keterangan'); ?></div>

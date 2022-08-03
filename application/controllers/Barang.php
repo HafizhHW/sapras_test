@@ -18,6 +18,7 @@ class Barang extends CI_Controller
     $data['judul'] = "Data Barang";
     $data['join'] = $this->Barang_model->get_join('tbl_barang');
     $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/V_barang', $data);
@@ -51,6 +52,19 @@ class Barang extends CI_Controller
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/Update_barang', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function filter()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['join'] = $this->Barang_model->get_join('tbl_barang');
+    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_barang/V_barang', $data);
     $this->load->view('templates/footer');
   }
 
