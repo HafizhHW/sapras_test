@@ -25,9 +25,25 @@ class Transaksi_model extends CI_Model
     return $this->db->get($table);
   }
 
-  function insert_data($data, $table)
+  public function insert_data($data, $table)
   {
     $this->db->insert($table, $data);
+  }
+
+  public function update($where, $table)
+  {
+    return $this->db->get_where($table, $where);
+  }
+
+  function update_data($where, $data, $table)
+  {
+    $this->db->where($where);
+    $this->db->update($table, $data);
+  }
+  public function delete_data($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
   }
 
   public function get_joinData($table)
@@ -43,6 +59,8 @@ class Transaksi_model extends CI_Model
     $data = $this->db->get($table);
     return $data->result();
   }
+
+
 
   public function get_join($table)
   {

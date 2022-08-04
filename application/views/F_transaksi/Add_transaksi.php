@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Nama Barang </label>
                                 <div class="col-xs-8">
-                                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="id_barang">
                                         <option value="">Pilih Barang</option>
                                         <?php foreach ($barang as $t) {
                                             echo "<option value=" . $t->id_barang . ">" . $t->nm_barang . "</option>";
@@ -50,7 +50,7 @@
                                         } ?>
                                     </select> -->
                                     <!-- <input type="text" name="nm_barang" class="form-control" placeholder="Nama Barang"> -->
-                                    <div class="alert-danger"><?php echo form_error('nm_barang'); ?></div>
+                                    <div class="alert-danger"><?php echo form_error('id_barang'); ?></div>
                                 </div>
                             </div>
 
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label class="control-label col-xs-3"> Unit </label>
+                                        <label class="control-label col-xs-3 required"> Unit </label>
                                         <div class="col-xs-8">
                                             <input type="text" name="unit" class="form-control" placeholder="PCS">
                                             <div class="alert-danger"><?php echo form_error('unit'); ?></div>
