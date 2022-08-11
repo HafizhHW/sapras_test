@@ -30,6 +30,7 @@ class Transaksi extends CI_Controller
     $data['title'] = "Transaksi";
     $data['judul'] = "Tambah Transaksi";
     $data['transaksi'] = $this->Transaksi_model->get_joinData('tbl_transaksi');
+    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_transaksi/Add_transaksi', $data);

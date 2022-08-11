@@ -22,5 +22,12 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/template') ?>/dist/css/adminlte.min.css">
 
+    <!-- SWEET ALERT 2 -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/animate.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+
+
+
+
 
 </head>

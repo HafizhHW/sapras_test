@@ -9,4 +9,4 @@ Minus masih banyak
 - Belum bisa validasi saat upload document
     - saat form file/dokumen kosong tidak melakukan validsai.
     - saat form file/dokumen terisi harus melakukan validasi dari types file(pdf|jpg|png|jpeg) dan max_size (3Mb)
-- Belum ada validasi membuat username dan password. Misalnya username harus Admin123 dan password harus mengadung uppercase dan angka
+- Belum ada validasi membuat username dan password. Misalnya username harus Admin123$(mengandung Huruf, angka/karakter unik dan min 6) dan password harus mengadung uppercase dan angka

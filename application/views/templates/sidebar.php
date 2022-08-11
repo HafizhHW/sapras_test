@@ -122,13 +122,14 @@
                         </li>
 
                         <?php if ($this->session->userdata('akses') == '1') { ?>
+
                             <li class="nav-item">
-                                <a href="<? //php base_url('') 
-                                            ?>" class="nav-link">
-                                    <!-- <i class="fas fa-fw fa-database"></i> -->
-                                    <i class="fas fa-fw fa-file-archive"></i>
+                                <a href="<?php echo base_url('BarangRusak')
+                                            ?>" class="nav-link <?php if ($this->uri->segment(1) == 'BarangRusak') echo 'active' ?>">
+                                    <i class="fas fa-fw fa-database"></i>
+                                    <!-- <i class="fas fa-fw fa-archive"></i> -->
                                     <p>
-                                        Data Barang Rusak
+                                        Data Barang Rusakk
                                         <!-- <span class="right badge badge-danger">New</span> -->
                                     </p>
                                 </a>

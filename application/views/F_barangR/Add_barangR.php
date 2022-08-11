@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php base_url('Project') ?>"><?= $judul ?></a></li>
+                        <li class="breadcrumb-item"><a href="<?php base_url('BarangRusak') ?>"><?= $judul ?></a></li>
                         <li class="breadcrumb-item active"><?= $title ?></li>
                     </ol>
                 </div>
@@ -27,51 +27,63 @@
                     <!-- <?= $this->session->flashdata('pesan'); ?> -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Project</h3>
+                            <h3 class="card-title">Tambah Barang Rusak</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
 
-                        <?php echo form_open_multipart('Project/add_act'); ?>
+                        <?php echo form_open_multipart('Transaksi/add_act'); ?>
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="control-label col-xs-3 required"> Nama Project </label>
+                                <label class="control-label col-xs-3 required"> Nama Barang </label>
                                 <div class="col-xs-8">
-                                    <input type="text" name="nm_project" class="form-control" placeholder="">
-                                    <div class="text-danger"><?php echo form_error('nm_project'); ?></div>
+                                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="id_barang">
+                                        <option value="">Pilih Barang</option>
+                                        <?php foreach ($barang as $b) {
+                                            echo "<option value=" . $b->id_barang . ">" . $b->nm_barang . "</option>";
+                                        } ?>
+                                    </select>
+                                    <!-- <select name="id_barang" id="" class="col col-12 col-md-12 col-sm-12">
+                                        <option value="">Pilih Barang</option>
+                                        <?php foreach ($barang as $t) {
+                                            echo "<option value=" . $t->id_barang . ">" . $t->nm_barang . "</option>";
+                                        } ?>
+                                    </select> -->
+                                    <!-- <input type="text" name="nm_barang" class="form-control" placeholder="Nama Barang"> -->
+                                    <div class="alert-danger"><?php echo form_error('id_barang'); ?></div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-xs-3 required"> Tanggal Project </label>
+                                <label class="control-label col-xs-3 required"> Jumlah Barang </label>
                                 <div class="col-xs-8">
-                                    <input type="date" name="tgl_project" class="form-control" placeholder="">
-                                    <div class="text-danger"><?php echo form_error('tgl_project'); ?></div>
+                                    <input type="text" name="jml_barang" class="form-control" placeholder="Jumlah Barang">
+                                    <div class="alert-danger"><?php echo form_error('jml_barang'); ?></div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-xs-3"> Dokumen</label>
+                                <label class="control-label col-xs-3 required"> Penempatan </label>
                                 <div class="col-xs-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile03" name="doc_project">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
-                                    </div>
-                                    <!-- <input type="file" name="doc_project" class="form-control" placeholder="Pilih File" id="file" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx,.xls,.xlsx"> -->
-                                    <small class="text-danger">
-                                        <div class="text-danger"><?php echo form_error('doc_project'); ?></div>
-
-                                        <?php if ($project = ('doc_project')) {
-                                            echo $this->session->flashdata('error');
-                                        }
-                                        ?>
-                                    </small><br>
-
-
-                                    <small>File type : pdf, doc, docx, xls, xlsx, jpg, jpeg, png</small><br>
-                                    <small>Max size : 3Mb</small>
+                                    <select class="custom-select" id="inputGroupSelect04" name="id_tempat">
+                                        <option value="">Pilih Tempat</option>
+                                        <?php foreach ($tempat as $t) {
+                                            echo "<option value=" . $t->id_tempat . ">" . $t->nm_tempat . "</option>";
+                                        } ?>
+                                    </select>
+                                    <div class="alert-danger"><?php echo form_error('id_tempat'); ?></div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-3"> Keterangan </label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
+                                    <div class="alert-danger"><?php echo form_error('keterangan'); ?></div>
+                                </div>
+                            </div>
+
+
 
 
 

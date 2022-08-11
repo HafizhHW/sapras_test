@@ -40,6 +40,19 @@
 <!-- <script src="<?= base_url('assets/template') ?>/dist/js/demo.js"></script> -->
 <!-- Page specific script -->
 
+<!-- SWEET ALERT -->
+<script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+
+<script>
+    var flash = $('#flash').data('flash');
+    if (flash) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: flash
+        })
+    }
+</script>
 <!-- Data Table New -->
 <script>
     $('#inputGroupFile03').on('change', function() {

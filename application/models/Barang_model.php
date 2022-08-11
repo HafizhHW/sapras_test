@@ -26,6 +26,7 @@ class Barang_model extends CI_Model
     $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat']);
     $this->db->from('tbl_barang b');
     $this->db->join('tbl_tempat tp', 'b.id_tempat = tp.id_tempat');
+    $this->db->group_by('b.id_barang');
     // $this->db->join('tbl_barang b', 't.id_barang = b.id_barang');
     $data = $this->db->get($table);
     return $data->result();
