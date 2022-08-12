@@ -90,39 +90,39 @@ class Transaksi extends CI_Controller
 
   function edit_act($id)
   {
-    // $this->_rules();
-    // if ($this->form_validation->run() == FALSE) {
-    //   $this->edit_transaksi($id);
-    // } else {
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+      $this->edit_transaksi($id);
+    } else {
 
-    $id_barang = $this->input->post('id_barang');
-    $jml_barang = $this->input->post('jml_barang');
-    $unit = $this->input->post('unit');
-    $tgl_transaksi = $this->input->post('tgl_transaksi');
-    $nm_penerima = $this->input->post('nm_penerima');
-    $id_admin = $this->session->userdata('ses_id');
-    $ket = $this->input->post('keterangan');
+      $id_barang = $this->input->post('id_barang');
+      $jml_barang = $this->input->post('jml_barang');
+      $unit = $this->input->post('unit');
+      $tgl_transaksi = $this->input->post('tgl_transaksi');
+      $nm_penerima = $this->input->post('nm_penerima');
+      $id_admin = $this->session->userdata('ses_id');
+      $ket = $this->input->post('keterangan');
 
-    $data = [
-      'id_barang' => $id_barang,
-      'jml_barang' => $jml_barang,
-      'unit' => $unit,
-      'tgl_transaksi' => $tgl_transaksi,
-      'nm_penerima' => $nm_penerima,
-      'id_admin' => $id_admin,
-      'keterangan' => $ket
-    ];
-    $where = ['id_transaksi' => $id];
-    $this->Transaksi_model->update_data($where, $data, 'tbl_transaksi');
-    $this->session->set_flashdata('pesan', '
+      $data = [
+        'id_barang' => $id_barang,
+        'jml_barang' => $jml_barang,
+        'unit' => $unit,
+        'tgl_transaksi' => $tgl_transaksi,
+        'nm_penerima' => $nm_penerima,
+        'id_admin' => $id_admin,
+        'keterangan' => $ket
+      ];
+      $where = ['id_transaksi' => $id];
+      $this->Transaksi_model->update_data($where, $data, 'tbl_transaksi');
+      $this->session->set_flashdata('pesan', '
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           Data Berhasil Diubah !
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>');
-    redirect('Transaksi');
-    // }
+      redirect('Transaksi');
+    }
   }
 
   function delete_act($id)

@@ -32,7 +32,7 @@
                         <!-- /.card-header -->
                         <!-- form start -->
 
-                        <?php echo form_open_multipart('Transaksi/add_act'); ?>
+                        <?php echo form_open_multipart('BarangRusak/add_act'); ?>
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Nama Barang </label>
@@ -43,13 +43,6 @@
                                             echo "<option value=" . $b->id_barang . ">" . $b->nm_barang . "</option>";
                                         } ?>
                                     </select>
-                                    <!-- <select name="id_barang" id="" class="col col-12 col-md-12 col-sm-12">
-                                        <option value="">Pilih Barang</option>
-                                        <?php foreach ($barang as $t) {
-                                            echo "<option value=" . $t->id_barang . ">" . $t->nm_barang . "</option>";
-                                        } ?>
-                                    </select> -->
-                                    <!-- <input type="text" name="nm_barang" class="form-control" placeholder="Nama Barang"> -->
                                     <div class="alert-danger"><?php echo form_error('id_barang'); ?></div>
                                 </div>
                             </div>
@@ -76,17 +69,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-xs-3"> Keterangan </label>
+                                <label class="control-label col-xs-3 required"> Keterangan </label>
                                 <div class="col-xs-8">
                                     <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
                                     <div class="alert-danger"><?php echo form_error('keterangan'); ?></div>
                                 </div>
                             </div>
-
-
-
-
-
                         </div>
                         <!-- /.card-body -->
 

@@ -22,6 +22,33 @@ class BarangR_model extends CI_Model
     // 
   }
 
+  public function get_data($table)
+  {
+    return $this->db->get($table);
+  }
+
+  public function insert_data($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
+  public function update($where, $table)
+  {
+    return $this->db->get_where($table, $where);
+  }
+
+  function update_data($where, $data, $table)
+  {
+    $this->db->where($where);
+    $this->db->update($table, $data);
+  }
+
+  public function delete_data($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
+
   public function get_join($table)
   {
     $this->db->select(['br.id_br', 'br.jml_barang', 'br.keterangan', 'b.id_barang', 'b.nm_barang', 'b.no_seri',  'b.unit', 'tp.id_tempat', 'tp.nm_tempat']);
