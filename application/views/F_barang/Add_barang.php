@@ -61,7 +61,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label class="control-label col-xs-3"> Unit </label>
                                         <div class="col-xs-8">
-                                            <input type="text" name="unit" class="form-control" placeholder="PCS">
+                                            <input type="text" name="unit" class="form-control" placeholder="unit">
                                             <div class="alert-danger"><?php echo form_error('unit'); ?></div>
                                         </div>
                                     </div>

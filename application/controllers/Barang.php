@@ -162,7 +162,7 @@ class Barang extends CI_Controller
         $error = array('error' => $this->upload->display_errors());
 
         $this->session->set_flashdata($error);
-        $this->session->flashdata('success');
+        $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
         redirect('Barang/add_barang');
       } else {
 
@@ -190,7 +190,8 @@ class Barang extends CI_Controller
           'doc_barang' => $dokumen
         );
         $this->Barang_model->insert_data($data, 'tbl_barang');
-        $this->session->flashdata('success');
+
+        $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
 
         // $this->session->set_flashdata('pesan', '
         // <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -457,15 +458,8 @@ class Barang extends CI_Controller
 
         $this->db->where('id_barang', $id_barang);
         $this->db->update('tbl_barang', $data);
-        $this->session->flashdata('success');
 
-        // $this->session->set_flashdata('pesan', '
-        // <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        //   Data Berhasil Diubah !
-        //   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        //     <span aria-hidden="true">&times;</span>
-        //   </button>
-        // </div>');
+        $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
 
         redirect('Barang/index');
       } else {
@@ -502,15 +496,9 @@ class Barang extends CI_Controller
         // $this->Barang_model->update_barang($data);
         $this->db->where('id_barang', $id_barang);
         $this->db->update('tbl_barang', $data);
-        $this->session->flashdata('success');
 
-        // $this->session->set_flashdata('pesan', '
-        // <div class="alert alert-info alert-dismissible fade show" role="alert">
-        //   Data Berhasil Diubah !
-        //   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        //     <span aria-hidden="true">&times;</span>
-        //   </button>
-        // </div>');
+        $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
+
         redirect('Barang/index');
       }
     }

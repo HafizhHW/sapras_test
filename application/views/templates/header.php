@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href=<?php echo base_url('assets/image/smkn1icon.ico'); ?> rel="icon" type="image/gif">
     <title><?= $title ?></title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -25,6 +26,8 @@
     <!-- SWEET ALERT 2 -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/animate.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 
