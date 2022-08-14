@@ -81,13 +81,7 @@ class Project extends CI_Controller
           $this->Project_model->insert_data($data, 'tbl_project');
           $error = array('error' => $this->upload->display_errors());
           $this->session->set_flashdata($error);
-          $this->session->set_flashdata('pesan', '
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Di Tambahkan !
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>');
+          $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
           redirect('Project');
         } else {
           $nm_project = $this->input->post('nm_project', TRUE);
@@ -99,6 +93,7 @@ class Project extends CI_Controller
             // 'doc_project' => $dok_project
           ];
           $this->Project_model->insert_data($data, 'tbl_project');
+          $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
           redirect('Project');
         }
       }
@@ -129,13 +124,7 @@ class Project extends CI_Controller
 
       $this->db->where('id_project', $id_project);
       $this->db->update('tbl_project', $data);
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data Berhasil Di Ubah !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
 
       redirect('Project');
     } else {
@@ -159,13 +148,7 @@ class Project extends CI_Controller
 
       $this->db->where('id_project', $id_project);
       $this->db->update('tbl_project', $data);
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data Berhasil Di Ubah !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
 
       redirect('Project');
       redirect('Project/edit_project');
@@ -180,13 +163,7 @@ class Project extends CI_Controller
     if ($query) {
       unlink('assets/F_project/' . $doc->doc_project);
     }
-    $this->session->set_flashdata('pesan', '
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data Berhasil Dihapus !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('Project');
   }
 
@@ -195,13 +172,7 @@ class Project extends CI_Controller
     $this->load->helper('download');
     $fileinfo = $this->Project_model->download($id_project);
     $brg = 'assets/F_project/' . $fileinfo['doc_project'];
-    force_download($brg, $this->session->set_flashdata('pesan', '
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      Barang Tidak Memiliki Dokumen !
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>'));
+    force_download($brg, $this->session->set_flashdata('success', 'Dokumen Berhasil Diunduh !'));
     redirect('Project');
     var_dump($brg);
   }

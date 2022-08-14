@@ -18,6 +18,7 @@
 
 <body class="">
     <div class="container">
+        <div id="flash" data-flash="<?= $this->session->flashdata('warning'); ?>"></div>
 
         <div class="row d-flex justify-content-center mx-auto mt-5">
 

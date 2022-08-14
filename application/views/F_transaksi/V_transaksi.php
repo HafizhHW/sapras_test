@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <?= $this->session->flashdata('pesan'); ?>
+                    <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div>
                     <div class="card">
                         <div class="card-header">
                             <div class="row">
@@ -73,7 +73,7 @@
                                                     <!-- <button class="btn btn-success" title="edit" data-toggle="modal" data-target="#tambah_barang<?= $brg->id_barang ?>"><i class="fas fa-edit"></i></button> -->
                                                     <a href="<?= base_url('Transaksi/edit_transaksi/' . $trs->id_transaksi) ?>" class="btn btn-info" title="edit"><i class="fa-solid fa-edit"></i></a>
 
-                                                    <a href="<?= base_url('Transaksi/delete_act/' . $trs->id_transaksi) ?>" class="btn btn-danger" title="hapus"><i class="fa-solid fa-trash-can" onclick="return confirm('Apakah anda yakin menghapus data ini?')"></i></a>
+                                                    <a href="<?= base_url('Transaksi/delete_act/' . $trs->id_transaksi) ?>" class="btn btn-danger" title="hapus" id="btn-hapus"><i class="fa-solid fa-trash-can"></i></a>
 
                                                 </div>
 

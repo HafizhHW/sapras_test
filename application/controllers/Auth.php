@@ -40,6 +40,9 @@ class Auth extends CI_Controller
         $this->session->set_userdata('ses_id', $data['id_admin']);
         $this->session->set_userdata('ses_nama', $data['nama']);
         $this->session->set_userdata('ses_username', $data['username']);
+
+        $this->session->set_flashdata('success', $this->session->userdata('ses_nama'));
+
         redirect('Barang');
       } else { //jika login sebagai kasir
         $cek_kasir = $this->Log_model->auth_user($username, $password);
@@ -52,10 +55,21 @@ class Auth extends CI_Controller
           $this->session->set_userdata('ses_username', $data['username']);
           redirect('Barang');
         } else {
+
           echo "<script>
-                alert('Login gagal, username atau password salah');
-                window.location='" . base_url() . "';
+          var flash = $('#flash').data('flash');
+          if (flash) {
+              Swal.fire({
+                  icon: 'warning',
+                  title: 'Warning',
+                  text: flash
+              })
+          }
                 </script>";
+          // echo "<script>
+          //       alert('Login gagal, username atau password salah');
+          //       window.location='" . base_url() . "';
+          //       </script>";
         }
       }
     }

@@ -42,8 +42,9 @@
 
 <!-- SWEET ALERT -->
 <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= base_url() ?>assets/sweetalert2/MyScriptAlert.js"></script>
 
-<script>
+<!-- <script>
     var flash = $('#flash').data('flash');
     if (flash) {
         Swal.fire({
@@ -52,7 +53,26 @@
             text: flash
         })
     }
-</script>
+
+    $(document).on('click', '#btn-hapus', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: "Data akan dihapus!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = link;
+            }
+        })
+    })
+</script> -->
 <!-- Data Table New -->
 <script>
     $('#inputGroupFile03').on('change', function() {

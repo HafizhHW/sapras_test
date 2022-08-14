@@ -68,6 +68,7 @@ class User extends CI_Controller
       ];
 
       $this->User_model->insert_data($data, 'tbl_admin');
+      $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
 
       redirect('User');
     }
@@ -92,6 +93,7 @@ class User extends CI_Controller
       ];
 
       $this->User_model->insert_data($data, 'tbl_user');
+      $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
 
       redirect('User');
     }
@@ -101,6 +103,7 @@ class User extends CI_Controller
   {
     $where = array('id_admin' => $id);
     $this->User_model->delete_dataAdmin($where, 'tbl_admin');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('User');
   }
 
@@ -108,6 +111,7 @@ class User extends CI_Controller
   {
     $where = array('id_user' => $id);
     $this->User_model->delete_dataUser($where, 'tbl_user');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('User');
   }
 

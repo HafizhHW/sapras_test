@@ -78,8 +78,11 @@ class Arsip extends CI_Controller
             'doc_arsip' => $doc_arsip
           ];
           $this->Arsip_model->insert_data($data, 'tbl_arsip');
+
           $error = array('error' => $this->upload->display_errors());
           $this->session->set_flashdata($error);
+          $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
+
           redirect('Arsip');
         } else {
           $nm_arsip = $this->input->post('nm_arsip', TRUE);
@@ -91,6 +94,9 @@ class Arsip extends CI_Controller
             // 'doc_project' => $dok_project
           ];
           $this->Arsip_model->insert_data($data, 'tbl_arsip');
+
+          $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
+
           redirect('Arsip');
         }
       }
@@ -121,13 +127,8 @@ class Arsip extends CI_Controller
 
       $this->db->where('id_arsip', $id_arsip);
       $this->db->update('tbl_arsip', $data);
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data Berhasil Di Ubah !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+
+      $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
 
       redirect('Arsip');
     } else {
@@ -151,13 +152,7 @@ class Arsip extends CI_Controller
 
       $this->db->where('id_arsip', $id_arsip);
       $this->db->update('tbl_arsip', $data);
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data Berhasil Di Ubah !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
 
       redirect('Arsip');
       redirect('Arsip/edit_arsip');
@@ -172,13 +167,7 @@ class Arsip extends CI_Controller
     if ($query) {
       unlink('assets/F_arsip/' . $doc->doc_arsip);
     }
-    $this->session->set_flashdata('pesan', '
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data Berhasil Dihapus !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('Arsip');
   }
 
@@ -187,13 +176,7 @@ class Arsip extends CI_Controller
     $this->load->helper('download');
     $fileinfo = $this->Arsip_model->download($id_arsip);
     $brg = 'assets/F_arsip/' . $fileinfo['doc_arsip'];
-    force_download($brg, $this->session->set_flashdata('pesan', '
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      Barang Tidak Memiliki Dokumen !
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>'));
+    force_download($brg, $this->session->set_flashdata('success', 'Dokumen Berhasil Diunduh !'));
     redirect('Arsip');
     // var_dump($brg);
   }

@@ -70,7 +70,8 @@
                                                     <!-- <button class="btn btn-success" title="edit" data-toggle="modal" data-target="#tambah_barang<?= $br->id_barang ?>"><i class="fas fa-edit"></i></button> -->
                                                     <a href="<?= base_url('BarangRusak/edit_brgR/' . $br->id_br) ?>" class="btn btn-info" title="edit"><i class="fa-solid fa-edit"></i></a>
 
-                                                    <a href="<?= base_url('BarangRusak/delete_act/' . $br->id_br) ?>" class="btn btn-danger" title="hapus"><i class="fa-solid fa-trash-can" onclick="return confirm('Apakah anda yakin menghapus data ini?')"></i></a>
+                                                    <!-- <a href="<?= base_url('BarangRusak/delete_act/' . $br->id_br) ?>" class="btn btn-danger" title="hapus"><i class="fa-solid fa-trash-can" onclick="return confirm('Apakah anda yakin menghapus data ini?')"></i></a> -->
+                                                    <a href="<?= base_url('BarangRusak/delete_act/' . $br->id_br) ?>" class="btn btn-danger" title="hapus" id="btn-hapus"><i class="fa-solid fa-trash-can"></i></a>
 
                                                 </div>
 

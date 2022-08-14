@@ -77,13 +77,7 @@ class Transaksi extends CI_Controller
       ];
       $this->Transaksi_model->insert_data($data, 'tbl_transaksi');
 
-      $this->session->set_flashdata('pesan', '
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data Berhasil Di Tambahkan !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
       redirect('Transaksi');
     }
   }
@@ -114,13 +108,7 @@ class Transaksi extends CI_Controller
       ];
       $where = ['id_transaksi' => $id];
       $this->Transaksi_model->update_data($where, $data, 'tbl_transaksi');
-      $this->session->set_flashdata('pesan', '
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          Data Berhasil Diubah !
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
       redirect('Transaksi');
     }
   }
@@ -129,13 +117,7 @@ class Transaksi extends CI_Controller
   {
     $where = array('id_transaksi' => $id);
     $this->Transaksi_model->delete_data($where, 'tbl_transaksi');
-    $this->session->set_flashdata('pesan', '
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data Berhasil Dihapus !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('Transaksi');
   }
 

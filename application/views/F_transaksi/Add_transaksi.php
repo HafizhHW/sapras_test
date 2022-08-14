@@ -39,7 +39,7 @@
                                 <div class="col-xs-8">
                                     <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="id_barang">
                                         <option value="">Pilih Barang</option>
-                                        <?php foreach ($transaksi as $t) {
+                                        <?php foreach ($barang as $t) {
                                             echo "<option value=" . $t->id_barang . ">" . $t->nm_barang . "</option>";
                                         } ?>
                                     </select>

@@ -20,6 +20,7 @@
      <!-- Main content -->
      <section class="content">
          <div class="container-fluid">
+             <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div>
              <!-- <div class="row">
                  <div class="col-6 col-md-6">
                      <div class="card">

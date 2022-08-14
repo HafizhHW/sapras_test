@@ -56,13 +56,7 @@ class BarangRusak extends CI_Controller
   {
     $where = array('id_br' => $id);
     $this->BarangR_model->delete_data($where, 'tbl_barang_rusak');
-    $this->session->set_flashdata('pesan', '
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data Berhasil Dihapus !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('BarangRusak');
   }
 
@@ -85,13 +79,7 @@ class BarangRusak extends CI_Controller
       ];
 
       $this->BarangR_model->insert_data($data, 'tbl_barang_rusak');
-      $this->session->set_flashdata('pesan', '
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      Data Berhasil Di Tambahkan !
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
       redirect('BarangRusak');
     }
   }
@@ -116,13 +104,7 @@ class BarangRusak extends CI_Controller
 
       $where = ['id_br' => $id];
       $this->BarangR_model->update_data($where, $data, 'tbl_barang_rusak');
-      $this->session->set_flashdata('pesan', '
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          Data Berhasil Diubah !
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>');
+      $this->session->set_flashdata('success', 'Data Berhasil Diubah !');
       redirect('BarangRusak');
     }
   }

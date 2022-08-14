@@ -512,13 +512,7 @@ class Barang extends CI_Controller
     if ($query) {
       unlink('assets/F_doc_brg/' . $doc->doc_barang);
     }
-    $this->session->set_flashdata('pesan', '
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data Berhasil Dihapus !
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>');
+    $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
     redirect('Barang');
   }
 
@@ -527,13 +521,8 @@ class Barang extends CI_Controller
     $this->load->helper('download');
     $fileinfo = $this->Barang_model->download($id_barang);
     $brg = 'assets/F_doc_brg/' . $fileinfo['doc_barang'];
-    force_download($brg, $this->session->set_flashdata('pesan', '
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      Barang Tidak Memiliki Dokumen !
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>'));
+    force_download($brg, $this->session->set_flashdata('success', 'Dokumen Berhasil Diunduh !'));
+
     redirect('Barang');
     var_dump($brg);
   }
