@@ -19,7 +19,17 @@
 <body class="">
     <div class="container">
         <div id="flash" data-flash="<?= $this->session->flashdata('warning'); ?>"></div>
-
+        <?php if ($this->session->flashdata('error')) : ?>
+            <script>
+                swal({
+                    title: "Error",
+                    text: "Your request can not be completed",
+                    icon: "error",
+                    button: false,
+                    timer: 5000,
+                });
+            </script>
+        <?php endif; ?>
         <div class="row d-flex justify-content-center mx-auto mt-5">
 
             <div class="col-img col-lg-6 col-md-6 col-sm-6 mx-auto d-flex align-items-center">
@@ -49,13 +59,13 @@
                             <?php echo form_open_multipart("Auth/Log_act"); ?>
                             <!-- <form action="<?= base_url('Auth/Log_act') ?>" method="post"> -->
                             <div class="form-floating mb-3">
-                                <input type="text" name="username" class="form-control border-2 rounded-pill" id="floatingInput" placeholder="Username" ">
+                                <input type="text" name="username" class="form-control border-2 rounded-pill" id="floatingInput" placeholder="Username" required>
                                 <label for=" floatingInput">Username</label>
                                 <div class="text-danger"><?php echo form_error('username'); ?></div>
                             </div>
 
                             <div class="form-floating mb-5">
-                                <input type="password" name="pass" class="form-control border-2 rounded-pill" id="floatingPassword" placeholder="Password">
+                                <input type="password" name="pass" class="form-control border-2 rounded-pill" id="floatingPassword" placeholder="Password" required>
                                 <label for="floatingPassword">Password</label>
                                 <div class="text-danger"><?php echo form_error('pass'); ?></div>
                             </div>

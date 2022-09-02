@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-</head>
-
-<body>
+</head><body>
     <h2 class="" style="text-align:center ;">Laporan Barang</h2> <br><br>
     <table border="1" style='border-collapse:collapse'>
 
@@ -25,7 +21,7 @@
 
 
         <?php $no = 1;
-        foreach ($barang as $brg) : ?>
+        foreach ($join as $brg) : ?>
             <tr>
                 <td class="text-center"><?= $no++ ?></td>
                 <td><?= $brg->nm_barang ?></td>
@@ -34,7 +30,7 @@
                 <td class="text-center"><?= $brg->kat_barang ?></td>
                 <td class="text-center"><?= $brg->kat_anggaran ?></td>
                 <td class="text-center"><?= $brg->thn_pengadaan ?></td>
-                <td class="text-center"><?= $brg->penempatan ?></td>
+                <td class="text-center"><?= $brg->nm_tempat ?></td>
             </tr>
         <?php endforeach ?>
 
@@ -43,6 +39,4 @@
     <script type="text/javascript">
         window.open();
     </script>
-</body>
-
-</html>
+</body></html>

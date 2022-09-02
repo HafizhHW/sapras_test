@@ -16,12 +16,8 @@ class User_model extends CI_Model
 
 
   // ------------------------------------------------------------------------
-  function get_data_admin($table)
-  {
-    return $this->db->get($table);
-  }
 
-  function get_data_user($table)
+  function get_data($table)
   {
     return $this->db->get($table);
   }
@@ -31,13 +27,7 @@ class User_model extends CI_Model
     $this->db->insert($table, $data);
   }
 
-  function delete_dataAdmin($where, $table)
-  {
-    $this->db->where($where);
-    $this->db->delete($table);
-  }
-
-  function delete_dataUser($where, $table)
+  function delete_data($where, $table)
   {
     $this->db->where($where);
     $this->db->delete($table);
@@ -51,8 +41,39 @@ class User_model extends CI_Model
       ->result();
   }
 
+  function get_dataPage($table)
+  {
+    return $this->db->get($table);
+  }
+
+  function get_admin_list($limit, $start)
+  {
+    $query = $this->db->get('tbl_admin', $limit, $start);
+    return $query->result();
+  }
+
+  function get_user_list($limit, $start)
+  {
+    $query = $this->db->get('tbl_user', $limit, $start);
+    return $query->result();
+  }
+
+  function get_tempat_list($limit, $start)
+  {
+    $query = $this->db->get('tbl_tempat', $limit, $start);
+    return $query->result();
+  }
   // ------------------------------------------------------------------------
 
+  function data($number, $offset)
+  {
+    return $query = $this->db->get('tbl_admin', $number, $offset)->result();
+  }
+
+  function jumlah_data()
+  {
+    return $this->db->get('tbl_admin')->num_rows();
+  }
 }
 
 /* End of file Admin_model.php */

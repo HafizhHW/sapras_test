@@ -28,7 +28,7 @@ class Project extends CI_Controller
 
   function add_project()
   {
-    $data['title'] = "Project";
+    $data['title'] = "Tambah Project";
     $data['judul'] = "Data Project";
     $data['error'] = '';
     $data['project'] = $this->Project_model->get_data('tbl_project')->result();
@@ -40,8 +40,8 @@ class Project extends CI_Controller
 
   function edit_project($id_project)
   {
-    $data['title'] = "Project";
-    $data['judul'] = "Edit Project";
+    $data['title'] = " EditProject";
+    $data['judul'] = "Data Project";
     $data['error'] = '';
     $where['id_project'] = $id_project;
     $data['project'] =  $this->Project_model->update($where, 'tbl_project')->result();

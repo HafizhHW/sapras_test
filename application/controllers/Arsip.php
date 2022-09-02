@@ -28,7 +28,7 @@ class Arsip extends CI_Controller
   function add_arsip()
   {
     $data['title'] = "Dokumen";
-    $data['judul'] = "Tambah Dokumen";
+    $data['judul'] = "Data Dokumen";
     $data['error'] = '';
     $data['arsip'] = $this->Arsip_model->get_data('tbl_arsip')->result();
     $this->load->view('templates/header', $data);
@@ -40,7 +40,7 @@ class Arsip extends CI_Controller
   function edit_arsip($id_arsip)
   {
     $data['title'] = "Dokumen";
-    $data['judul'] = "Edit Dokumen";
+    $data['judul'] = "Data Dokumen";
     $data['error'] = '';
     $where['id_arsip'] = $id_arsip;
     $data['arsip'] =  $this->Arsip_model->update($where, 'tbl_arsip')->result();

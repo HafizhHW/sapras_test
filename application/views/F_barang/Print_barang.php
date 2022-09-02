@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-</head>
-
-<body>
+</head><body>
     <h2 class="" style="text-align:center ;">Laporan Barang</h2> <br>
     <table border="1" style='border-collapse:collapse'>
         <thead>
@@ -43,6 +39,4 @@
     <script type="text/javascript">
         window.print();
     </script>
-</body>
-
-</html>
+</body></html>

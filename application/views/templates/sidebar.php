@@ -39,7 +39,7 @@
                                 <i class="fas fa-fw fa-user-tie"></i> Profile</a>
                             <div class="dropdown-divider"></div>
 
-                            <a class="dropdown-item" href="<?php echo base_url('Auth/Logout') ?>">
+                            <a class="dropdown-item" href="<?php echo base_url('Auth/Logout') ?>" id="btn-logout">
                                 <i class="fas fa-fw fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </a>
@@ -186,7 +186,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url('Auth/Logout') ?>" class="nav-link">
+                            <a href="<?php echo base_url('Auth/Logout') ?>" class="nav-link" id="btn-logout">
                                 <!-- <i class="fas fa-fw fa-users"></i> -->
                                 <i class="fas fa-fw fa-sign-out-alt"></i>
 

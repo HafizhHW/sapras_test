@@ -595,7 +595,8 @@ class Barang extends CI_Controller
   {
     $this->load->library(('dompdf_gen'));
 
-    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    // $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    $data['join'] = $this->Barang_model->get_join('tbl_barang');
 
     $this->load->view('F_barang/laporanpdf.php', $data);
 

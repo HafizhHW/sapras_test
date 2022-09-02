@@ -1,9 +1,3 @@
-<style>
-    .required:after {
-        content: " *";
-        color: red;
-    }
-</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -15,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php base_url('Arsip') ?>"><?= $judul ?></a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('Arsip') ?>"><?= $judul ?></a></li>
                         <li class="breadcrumb-item active"><?= $title ?></li>
                     </ol>
                 </div>

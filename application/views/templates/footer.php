@@ -16,6 +16,7 @@
 </div>
 <!-- ./wrapper -->
 
+
 <!-- jQuery -->
 <script src="<?= base_url('assets/template') ?>/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

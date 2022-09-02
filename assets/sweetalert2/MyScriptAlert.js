@@ -13,7 +13,9 @@ if (flash) {
     Swal.fire({
         icon: 'success',
         title: 'Success',
-        text: flash
+        text: flash,
+        showConfirmButton: false,
+        timer: 1500
     })
 }
 
@@ -29,6 +31,25 @@ $(document).on('click', '#btn-hapus', function (e) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = link;
+        }
+    })
+})
+
+$(document).on('click', '#btn-logout', function (e) {
+    e.preventDefault();
+    var link = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Apakah Anda Yakin Akan Keluar?',
+        text: "Pilih 'Logout' untuk keluar",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Logout'
     }).then((result) => {
         if (result.isConfirmed) {
             window.location = link;

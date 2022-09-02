@@ -104,7 +104,8 @@
 
                                 <?php if ($this->session->userdata('akses') == '1') { ?>
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></button>
+                                        <a class="btn btn-primary" href="<?php echo base_url('User/add_tempat') ?>" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></a>
+                                        <!-- <button class="btn btn-primary" type="button" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></button> -->
                                     </div>
                                 <?php } ?>
 

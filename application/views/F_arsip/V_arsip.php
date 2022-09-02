@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php base_url('Arsip') ?>"><?= $judul ?></a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('Arsip') ?>"><?= $judul ?></a></li>
                         <li class="breadcrumb-item active"><?= $title ?></li>
                     </ol>
                 </div>
@@ -24,6 +24,7 @@
             <div class="row">
                 <div class="col-12">
                     <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div>
+
                     <div class="card">
                         <div class="card-header">
                             <div class="row">

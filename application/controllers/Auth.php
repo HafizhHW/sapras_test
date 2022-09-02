@@ -34,14 +34,16 @@ class Auth extends CI_Controller
 
       $cek_admin = $this->Log_model->auth_admin($username, $password);
       if ($cek_admin->num_rows() > 0) { //jika login sebagai admin
+
         $data = $cek_admin->row_array();
         $this->session->set_userdata('masuk', TRUE);
         $this->session->set_userdata('akses', '1');
         $this->session->set_userdata('ses_id', $data['id_admin']);
         $this->session->set_userdata('ses_nama', $data['nama']);
         $this->session->set_userdata('ses_username', $data['username']);
+        $nm = $this->session->userdata('ses_nama');
 
-        $this->session->set_flashdata('success', $this->session->userdata('ses_nama'));
+        $this->session->set_flashdata('success', "Selamat Datang  $nm");
 
         redirect('Barang');
       } else { //jika login sebagai kasir
@@ -55,21 +57,12 @@ class Auth extends CI_Controller
           $this->session->set_userdata('ses_username', $data['username']);
           redirect('Barang');
         } else {
+          // $this->session->set_flashdata('error', 'Action Not Completed');
 
           echo "<script>
-          var flash = $('#flash').data('flash');
-          if (flash) {
-              Swal.fire({
-                  icon: 'warning',
-                  title: 'Warning',
-                  text: flash
-              })
-          }
+                alert('Login gagal, username atau password salah');
+                window.location='" . base_url() . "';
                 </script>";
-          // echo "<script>
-          //       alert('Login gagal, username atau password salah');
-          //       window.location='" . base_url() . "';
-          //       </script>";
         }
       }
     }

@@ -1,9 +1,3 @@
-<style>
-    .required:after {
-        content: " *";
-        color: red;
-    }
-</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -15,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php base_url('Arsip') ?>"><?= $judul ?></a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('User/ViewUser') ?>"><?= $judul ?></a></li>
                         <li class="breadcrumb-item active"><?= $title ?></li>
                     </ol>
                 </div>
@@ -30,7 +24,9 @@
                 <!-- left column -->
                 <div class="col-md-8">
                     <!-- general form elements -->
-                    <!-- <?= $this->session->flashdata('pesan'); ?> -->
+
+                    <!-- <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div> -->
+
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Tambah User</h3>
