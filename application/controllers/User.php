@@ -166,7 +166,7 @@ class User extends CI_Controller
       $this->User_model->insert_data($data, 'tbl_admin');
       $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
 
-      redirect('User');
+      redirect('User/ViewAdmin');
     }
   }
 
@@ -191,7 +191,7 @@ class User extends CI_Controller
       $this->User_model->insert_data($data, 'tbl_user');
       $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
 
-      redirect('User');
+      redirect('User/ViewUser');
     }
   }
 
@@ -214,7 +214,7 @@ class User extends CI_Controller
       $this->User_model->insert_data($data, 'tbl_tempat');
       $this->session->set_flashdata('success', 'Data Berhasil Ditambahkan !');
 
-      redirect('User');
+      redirect('User/ViewTempat');
     }
   }
 
@@ -223,7 +223,7 @@ class User extends CI_Controller
     $where = array('id_admin' => $id);
     $this->User_model->delete_data($where, 'tbl_admin');
     $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
-    redirect('User');
+    redirect('User/ViewAdmin');
   }
 
   function delete_user($id)
@@ -231,7 +231,7 @@ class User extends CI_Controller
     $where = array('id_user' => $id);
     $this->User_model->delete_data($where, 'tbl_user');
     $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
-    redirect('User');
+    redirect('User/ViewUser');
   }
 
   function delete_tempat($id)
@@ -239,7 +239,7 @@ class User extends CI_Controller
     $where = array('id_tempat' => $id);
     $this->User_model->delete_data($where, 'tbl_tempat');
     $this->session->set_flashdata('success', 'Data Berhasil Dihapus !');
-    redirect('User');
+    redirect('User/ViewTempat');
   }
 
   function _rules()

@@ -20,42 +20,48 @@
      <!-- Main content -->
 
      <section class="content">
-         <div class="row justify-content-center text-center">
+         <div class="container">
+             <div class="row justify-content-center text-center">
 
-             <div class="col-lg-3 col-md-6 col-8 mb-3">
-                 <div class="card p-4" style="width: 18rem; background-color:transparent;">
-                     <a href="<?= base_url('User/ViewAdmin') ?>">
-                         <img src="<?php echo base_url(); ?>assets\image\management.png" class="card-img-top" alt="..." title="admin">
-                     </a>
-                     <div class="card-body ">
-                         <h5 class="card-text">Data Admin</h5>
-                     </div>
-                 </div>
-             </div>
-
-             <div class="col-lg-3 col-md-6 col-8 mb-3 mr-5 ml-5">
-                 <div class="card p-4" style="width: 18rem; background-color:transparent;">
-                     <a href="<?= base_url('User/ViewUser') ?>">
-                         <img src="<?php echo base_url(); ?>assets\image\businessman.png" class="card-img-top" alt="..." title="user">
-                     </a>
-                     <div class="card-body ">
-                         <h5 class="card-text">Data Pengguna</h5>
+                 <div class="col-lg-4 col-md-6 col-8 mb-3 ">
+                     <!-- <div class="col-md-4 mb-3"> -->
+                     <div class="card p-5" style="width: 18rem; height:22rem;background-color:transparent;">
+                         <a href="<?= base_url('User/ViewAdmin') ?>">
+                             <img src="<?php echo base_url(); ?>assets\image\management.png" class="card-img-top" alt="..." title="admin">
+                         </a>
+                         <div class="card-body ">
+                             <h5 class="card-text">Data Admin</h5>
+                         </div>
                      </div>
                  </div>
 
-             </div>
-
-             <div class="col-lg-3 col-md-6 col-8 mb-3">
-                 <div class="card p-4" style="width: 18rem; background-color:transparent;">
-                     <a href="<?= base_url('User/ViewTempat') ?>">
-                         <img src="<?php echo base_url(); ?>assets\image\location-pin.png" class="card-img-top" alt="..." style="height:215px" title="tempat">
-                     </a>
-                     <div class="card-body ">
-                         <h5 class="card-text">Data Tempat Penyimpanan</h5>
+                 <div class="col-lg-4 col-md-6 col-8 mb-3">
+                     <!-- <div class="col-md-4  mb-3"> -->
+                     <div class="card p-5" style="width: 18rem; height:22rem; background-color:transparent;">
+                         <a href="<?= base_url('User/ViewUser') ?>">
+                             <img src="<?php echo base_url(); ?>assets\image\businessman.png" class="card-img-top" alt="..." title="user">
+                         </a>
+                         <div class="card-body ">
+                             <h5 class="card-text">Data Pengguna</h5>
+                         </div>
                      </div>
+
                  </div>
 
+                 <div class="col-lg-4 col-md-6 col-8 mb-3">
+                     <!-- <div class="col-md-4  mb-3"> -->
+                     <div class="card p-5" style="width: 18rem; height:22rem ;background-color:transparent;">
+                         <a href="<?= base_url('User/ViewTempat') ?>">
+                             <img src="<?php echo base_url(); ?>assets\image\location-pin.png" class="card-img-top" alt="..." style="height:215px" title="tempat">
+                         </a>
+                         <div class="card-body ">
+                             <h5 class="card-text">Data Tempat Penyimpanan</h5>
+                         </div>
+                     </div>
+
+                 </div>
              </div>
+
          </div>
 
      </section>

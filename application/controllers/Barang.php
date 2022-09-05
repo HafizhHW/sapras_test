@@ -591,7 +591,7 @@ class Barang extends CI_Controller
     // redirect('Barang');
   }
 
-  public function pdf()
+  public function Dompdf_gen()
   {
     $this->load->library(('dompdf_gen'));
 
