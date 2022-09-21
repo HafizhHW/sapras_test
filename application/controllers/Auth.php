@@ -80,7 +80,7 @@ class Auth extends CI_Controller
               showConfirmButton: false,
               timer: 1500
             }).then((result) => {
-              window.location = '<?= base_url('Auth/Log_act') ?>';
+              window.location = '<?= base_url('Auth') ?>';
             })
           </Script>
 

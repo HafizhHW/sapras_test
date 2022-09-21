@@ -25,17 +25,7 @@
     <div class="container">
 
         <div id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
-        <!-- <?php if ($this->session->flashdata('error')) : ?>
-            <script>
-                Swal.fire({
-                    title: "Error",
-                    text: "Your request can not be completed",
-                    icon: "error",
-                    button: false,
-                    timer: 5000,
-                });
-            </script>
-        <?php endif; ?> -->
+
 
         <div class="row d-flex justify-content-center mx-auto mt-5">
 
@@ -108,18 +98,7 @@
 
     </div>
 
-    <script>
-        var flash = $('#flash').data('flash');
-        if (flash) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Aduhhh',
-                text: flash,
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
-    </script>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://kit.fontawesome.com/8c2f5452bf.js" crossorigin="anonymous"></script>

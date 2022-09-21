@@ -19,16 +19,6 @@ if (flash) {
     })
 }
 
-var flash = $('#flash').data('flash');
-if (flash) {
-    Swal.fire({
-        icon: 'error',
-        title: 'Aduhhh',
-        text: flash,
-        showConfirmButton: false,
-        timer: 1500
-    })
-}
 
 $(document).on('click', '#btn-hapus', function (e) {
     e.preventDefault();

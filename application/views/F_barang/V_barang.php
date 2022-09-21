@@ -26,16 +26,7 @@
 
                     <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div>
 
-                    <!-- <?php if ($this->session->flashdata('success')) : ?>
-                        <script>
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Selamat Datang',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                        </script>
-                    <?php endif; ?> -->
+
                     <div class="card">
                         <div class="card-header">
                             <div class="row">
