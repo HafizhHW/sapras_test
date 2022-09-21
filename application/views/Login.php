@@ -11,6 +11,11 @@
 
     <link rel="stylesheet" href="assets\MyStyle.css">
     <link href=<?php echo base_url('assets/image/smkn1icon.ico'); ?> rel="icon" type="image/gif">
+
+
+    <!-- SWEET ALERT 2 -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/animate.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
     <title>SMKN1GnR</title>
 
 
@@ -18,10 +23,11 @@
 
 <body class="">
     <div class="container">
-        <div id="flash" data-flash="<?= $this->session->flashdata('warning'); ?>"></div>
-        <?php if ($this->session->flashdata('error')) : ?>
+
+        <div id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
+        <!-- <?php if ($this->session->flashdata('error')) : ?>
             <script>
-                swal({
+                Swal.fire({
                     title: "Error",
                     text: "Your request can not be completed",
                     icon: "error",
@@ -29,7 +35,8 @@
                     timer: 5000,
                 });
             </script>
-        <?php endif; ?>
+        <?php endif; ?> -->
+
         <div class="row d-flex justify-content-center mx-auto mt-5">
 
             <div class="col-img col-lg-6 col-md-6 col-sm-6 mx-auto d-flex align-items-center">
@@ -101,13 +108,28 @@
 
     </div>
 
-
+    <script>
+        var flash = $('#flash').data('flash');
+        if (flash) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Aduhhh',
+                text: flash,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://kit.fontawesome.com/8c2f5452bf.js" crossorigin="anonymous"></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- SWEET ALERT -->
+    <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+    <script src="<?= base_url() ?>assets/sweetalert2/MyScriptAlert.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
