@@ -109,17 +109,73 @@
                                 </li>
                             </ul>
                         </li> -->
+
+
                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-fw fa-database""></i>
+                                <p>
+                                    Data Barang
+                                    <i class=" right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo base_url('Barang') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Barang') echo 'active' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Semua Barang</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/flot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>TKJ</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/flot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>MM</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>TKR</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>TM</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>AK</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>AP</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- <li class="nav-item">
                             <a href="<?php echo base_url('Barang')
                                         ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Barang') echo 'active' ?>">
                                 <i class="fas fa-fw fa-database"></i>
-                                <!-- <i class="fas fa-fw fa-archive"></i> -->
+                               
                                 <p>
                                     Data Barang
-                                    <!-- <span class="right badge badge-danger">New</span> -->
+                                    
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
 
                         <?php if ($this->session->userdata('akses') == '1') { ?>
 
