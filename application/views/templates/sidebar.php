@@ -121,13 +121,15 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url('Barang') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Barang') echo 'active' ?>">
+                                    <a href="<?php echo base_url('Barang') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'Barang') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Semua Barang</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
+                                    <a href="<?php echo base_url('Barang/ViewTkj')
+                                                ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewTkj') echo 'active' ?>">
+                                        <!-- ?>" class="nav-link <?php echo $this->uri->segment(2) == 'ViewTkj' ? 'active' : '' ?>"> -->
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TKJ</p>
                                     </a>

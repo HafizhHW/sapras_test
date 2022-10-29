@@ -23,9 +23,11 @@ class Barang_model extends CI_Model
 
   public function get_join($table)
   {
-    $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat']);
+    // $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat', 'id_jurusan', 'nm_jurusan']);
+    $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat', 'tj.id_jurusan', 'tj.nm_jurusan']);
     $this->db->from('tbl_barang b');
     $this->db->join('tbl_tempat tp', 'b.id_tempat = tp.id_tempat');
+    $this->db->join('tbl_jurusan tj', 'b.id_jurusan = tj.id_jurusan');
     $this->db->group_by('b.id_barang');
     // $this->db->join('tbl_barang b', 't.id_barang = b.id_barang');
     $data = $this->db->get($table);
@@ -87,6 +89,11 @@ class Barang_model extends CI_Model
   }
 
   function get_tempat($table)
+  {
+    return $this->db->get($table);
+  }
+
+  function get_jurusan($table)
   {
     return $this->db->get($table);
   }

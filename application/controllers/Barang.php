@@ -19,6 +19,7 @@ class Barang extends CI_Controller
     $data['join'] = $this->Barang_model->get_join('tbl_barang');
     $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
     $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
+    $data['jurusan'] = $this->Barang_model->get_jurusan('tbl_jurusan')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/V_barang', $data);
@@ -33,9 +34,24 @@ class Barang extends CI_Controller
     $data['join'] = $this->Barang_model->get_join('tbl_barang');
     $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
     $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
+    $data['jurusan'] = $this->Barang_model->get_jurusan('tbl_jurusan')->result();
+    // var_dump($data['jurusan']);
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/Add_barang', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function ViewTkj()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['error'] = '';
+    $data['tkj'] = $this->Jurusan_model->get_Tkj('tbl_jurusan')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_barang/V_Tkj', $data);
     $this->load->view('templates/footer');
   }
 
@@ -49,6 +65,7 @@ class Barang extends CI_Controller
     // $data['join'] = $this->Barang_model->get_joinUpdate($where, 'tbl_barang');
     $data['barang'] =  $this->Barang_model->update($where, 'tbl_barang')->result();
     $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
+    $data['jurusan'] = $this->Barang_model->get_jurusan('tbl_jurusan')->result();
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_barang/Update_barang', $data);
@@ -177,6 +194,7 @@ class Barang extends CI_Controller
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
         $id_tempat = $this->input->post('id_tempat', TRUE);
+        $id_jurusan = $this->input->post('id_jurusan', TRUE);
 
         $data = array(
           'nm_barang' => $nm_barang,
@@ -187,6 +205,7 @@ class Barang extends CI_Controller
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
           'id_tempat' => $id_tempat,
+          'id_jurusan' => $id_jurusan,
           'doc_barang' => $dokumen
         );
         $this->Barang_model->insert_data($data, 'tbl_barang');
@@ -440,6 +459,7 @@ class Barang extends CI_Controller
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
         $id_tempat = $this->input->post('id_tempat', TRUE);
+        $id_jurusan = $this->input->post('id_jurusan', TRUE);
         // $doc_barang = $this->input->post('doc_barang', TRUE);
 
         $data = array(
@@ -451,6 +471,7 @@ class Barang extends CI_Controller
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
           'id_tempat' => $id_tempat,
+          'id_jurusan' => $id_jurusan,
           // 'doc_barang' => $doc_barang
         );
         // var_dump($this->upload->display_errors());
@@ -482,6 +503,7 @@ class Barang extends CI_Controller
         $kat_anggaran = $this->input->post('kat_anggaran', TRUE);
         $thn_pengadaan = $this->input->post('thn_pengadaan', TRUE);
         $id_tempat = $this->input->post('id_tempat', TRUE);
+        $id_jurusan = $this->input->post('id_jurusan', TRUE);
 
         $data = array(
           'nm_barang' => $nm_barang,
@@ -491,6 +513,7 @@ class Barang extends CI_Controller
           'kat_anggaran' => $kat_anggaran,
           'thn_pengadaan' => $thn_pengadaan,
           'id_tempat' => $id_tempat,
+          'id_jurusan' => $id_jurusan,
           'doc_barang' => $dokumen
         );
         // $this->Barang_model->update_barang($data);

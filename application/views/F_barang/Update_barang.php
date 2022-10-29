@@ -117,6 +117,26 @@
 
                                 </div>
 
+                                <label class="control-label col-xs-3 required"> Jurusan </span></label>
+                                <div class="input-group">
+
+                                    <select class="custom-select" id="inputGroupSelect04" name="id_jurusan" required>
+                                        <option value="<?= $brg->id_jurusan ?>">Pilih Jurusan</option>
+                                        <?php foreach ($jurusan as $j) {
+                                            echo "<option value=" . $j->id_jurusan . ">" . $j->nm_jurusan . "</option>";
+                                        } ?>
+
+                                    </select>
+
+                                    <?php if ($this->session->userdata('akses') == '1') { ?>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></button>
+                                        </div>
+                                    <?php } ?>
+
+
+                                </div>
+
                                 <div class="form-group mt-3">
                                     <label class="control-label col-xs-3"> Dokumen</label>
                                     <div class="col-xs-8">

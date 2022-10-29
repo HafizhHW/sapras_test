@@ -96,7 +96,7 @@
                                         <th class="text-center">Jenis Barang</th>
                                         <th class="text-center">Jenis Anggaran</th>
                                         <th class="text-center">Tahun Pengadaan</th>
-                                        <th class="text-center">Penempatan</th>
+                                        <!-- <th class="text-center">Penempatan</th> -->
                                         <th class="text-center">Jurusan</th>
                                         <th class="text-center">Dokumen</th>
                                         <th style="width: 20px" class="text-center">Aksi</th>
@@ -104,7 +104,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($join as $brg) : ?>
+                                    foreach ($tkj as $brg) : ?>
                                         <tr>
                                             <td class="text-center"><?= $no++ ?></td>
                                             <td><?= $brg->nm_barang ?></td>
@@ -113,7 +113,7 @@
                                             <td class="text-center"><?= $brg->kat_barang ?></td>
                                             <td class="text-center"><?= $brg->kat_anggaran ?></td>
                                             <td class="text-center"><?= $brg->thn_pengadaan ?></td>
-                                            <td class="text-center"><?= $brg->nm_tempat ?></td>
+                                            <!-- <td class="text-center"><?= $brg->nm_tempat ?></td> -->
                                             <td class="text-center"><?= $brg->nm_jurusan ?></td>
                                             <!-- <td class="text-center">
                                                 <a href="<?php echo base_url() . 'Barang/download/' . $brg->id_barang; ?>" class="btn btn-warning btn-sm float-center" title="unduh"><i class="fa-solid fa-cloud-arrow-down"></i></a>

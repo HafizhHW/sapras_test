@@ -111,6 +111,26 @@
 
 
                             </div>
+
+                            <label class="control-label col-xs-3 required pt-3"> Jurusan </span></label>
+                            <div class="input-group">
+
+                                <select class="custom-select" id="inputGroupSelect04" name="id_jurusan">
+                                    <option value="">Pilih Jurusan</option>
+                                    <?php foreach ($jurusan as $j) {
+                                        echo "<option value=" . $j->id_jurusan . ">" . $j->nm_jurusan . "</option>";
+                                    } ?>
+                                </select>
+
+                                <?php if ($this->session->userdata('akses') == '1') { ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('User/add_tempat') ?>" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></a>
+                                        <!-- <button class="btn btn-primary" type="button" title="tambah tempat"> <i class="fa-solid fa-plus fa-xl"></i></button> -->
+                                    </div>
+                                <?php } ?>
+
+
+                            </div>
                             <!--  -->
 
                             <!-- <div class="form-group">
