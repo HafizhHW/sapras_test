@@ -32,6 +32,7 @@ class Barang_model extends CI_Model
     $data = $this->db->get($table);
     return $data->result();
   }
+
   public function get_joinUpdate($where, $table)
   {
     $this->db->select(['b.id_barang', 'b.nm_barang', 'b.no_seri', 'b.jml_barang', 'b.unit', 'b.kat_barang', 'b.kat_anggaran', 'b.thn_pengadaan', 'b.doc_barang', 'tp.id_tempat', 'tp.nm_tempat']);

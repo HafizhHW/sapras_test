@@ -13,17 +13,7 @@ class Barang extends CI_Controller
 
   public function index()
   {
-
-    $data['title'] = "Barang";
-    $data['judul'] = "Data Barang";
-    $data['join'] = $this->Barang_model->get_join('tbl_barang');
-    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
-    $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
-    $data['jurusan'] = $this->Barang_model->get_jurusan('tbl_jurusan')->result();
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
-    $this->load->view('F_barang/V_barang', $data);
-    $this->load->view('templates/footer');
+    $this->ViewAllBarang();
   }
 
   public function ViewAllBarang()
