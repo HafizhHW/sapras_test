@@ -26,6 +26,21 @@ class Barang extends CI_Controller
     $this->load->view('templates/footer');
   }
 
+  public function ViewAllBarang()
+  {
+
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['join'] = $this->Barang_model->get_join('tbl_barang');
+    $data['barang'] = $this->Barang_model->get_data('tbl_barang')->result();
+    $data['tempat'] = $this->Barang_model->get_tempat('tbl_tempat')->result();
+    $data['jurusan'] = $this->Barang_model->get_jurusan('tbl_jurusan')->result();
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_barang/V_barang', $data);
+    $this->load->view('templates/footer');
+  }
+
   public function add_barang()
   {
     $data['title'] = "Barang";
@@ -48,10 +63,77 @@ class Barang extends CI_Controller
     $data['judul'] = "Data Barang";
     $data['error'] = '';
     $data['tkj'] = $this->Jurusan_model->get_Tkj('tbl_jurusan')->result();
+    // $data['tkj'] = $this->Jurusan_model->get_Mm('tbl_jurusan')->result();
+    // $data['tkj'] = $this->Jurusan_model->get_Tkj('tbl_jurusan')->result();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
-    $this->load->view('F_barang/V_Tkj', $data);
+    $this->load->view('F_jurusan/V_Tkj', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function ViewMm()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['error'] = '';
+    $data['mm'] = $this->Jurusan_model->get_Mm('tbl_jurusan')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_jurusan/V_Mm', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function ViewTm()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['error'] = '';
+    $data['tm'] = $this->Jurusan_model->get_Tm('tbl_jurusan')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_jurusan/V_Tm', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function ViewTkr()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['error'] = '';
+    $data['tkr'] = $this->Jurusan_model->get_Tkr('tbl_jurusan')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_jurusan/V_Tkr', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function ViewAk()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['error'] = '';
+    $data['ak'] = $this->Jurusan_model->get_Ak('tbl_jurusan')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_jurusan/V_Ak', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function ViewAp()
+  {
+    $data['title'] = "Barang";
+    $data['judul'] = "Data Barang";
+    $data['error'] = '';
+    $data['ap'] = $this->Jurusan_model->get_Ap('tbl_jurusan')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_jurusan/V_Ap', $data);
     $this->load->view('templates/footer');
   }
 

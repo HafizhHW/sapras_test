@@ -112,8 +112,9 @@
 
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-fw fa-database""></i>
+                            <!-- <a href="#" class="nav-link"> -->
+                            <a href="" class="nav-link <?php if ($this->uri->segment(1) == 'Barang') echo 'active' ?>">
+                                <i class="fas fa-fw fa-database"></i>
                                 <p>
                                     Data Barang
                                     <i class=" right fas fa-angle-left"></i>
@@ -121,7 +122,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url('Barang') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'Barang') echo 'active' ?>">
+                                    <a href="<?php echo base_url('Barang/ViewAllBarang') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewAllBarang') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Semua Barang</p>
                                     </a>
@@ -135,31 +136,31 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
+                                    <a href="<?php echo base_url('Barang/ViewMm') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewMm') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>MM</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
+                                    <a href="<?php echo base_url('Barang/ViewTkr') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewTkr') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TKR</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                    <a href="<?php echo base_url('Barang/ViewTm') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewTm') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TM</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                    <a href="<?php echo base_url('Barang/ViewAk') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewAk') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>AK</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                    <a href="<?php echo base_url('Barang/ViewAp') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'ViewAp') echo 'active' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>AP</p>
                                     </a>
