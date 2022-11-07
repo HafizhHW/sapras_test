@@ -68,6 +68,9 @@ class Auth extends CI_Controller
           $this->session->set_userdata('ses_id', $data['id_user']);
           $this->session->set_userdata('ses_nama', $data['nama']);
           $this->session->set_userdata('ses_username', $data['username']);
+          $nm = $this->session->userdata('ses_nama');
+
+          $this->session->set_flashdata('success', "Selamat Datang $nm");
           redirect('Barang');
         } else {
       ?>
@@ -96,6 +99,7 @@ class Auth extends CI_Controller
     $data['title'] = "Edit";
     $data['judul'] = "Edit Profile";
     $data['error'] = '';
+
     // $user = $this->db->get('tbl_admin');
     // $user = $this->db->get('tbl_user');
     // $where['id_project'] = $id_project;
@@ -104,20 +108,26 @@ class Auth extends CI_Controller
 
     $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
 
+
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_user/Update_profile', $data);
     $this->load->view('templates/footer');
   }
 
-  public function update_profile($id)
+  public function update_profile()
   {
+    // $id['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
     $id = $this->input->post($this->session->userdata('sess_id'));
-    // $id = $this->input->post($this->session->userdata('akses', '1'));
+    // $id = $this->session->userdata('sess_id');
+    // $id = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+    // var_dump($id);
     // print_r($id);
     // die();
 
+
     if ($this->session->userdata('akses', '1')) {
+      // if ($this->session->userdata('sess_id')) {
 
       $nama = $this->input->post('nama');
       $username = $this->input->post('username');
