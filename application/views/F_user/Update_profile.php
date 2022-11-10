@@ -46,7 +46,7 @@
                                     <input type="text" name="nama" class="form-control" value="<?= $this->session->userdata("ses_nama") ?>">
                                     <input type="hidden" name="akses" class="form-control" value="<?= $this->session->userdata("akses") ?>" readonly>
                                     <input type="hidden" name="id" class="form-control" value="<?= $this->session->userdata("ses_id") ?>" readonly>
-                                    <!-- <div class="text-danger"><?php echo form_error('nama'); ?></div> -->
+
                                     <div class="alert-danger"><?php echo form_error('nama'); ?></div>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                 <label class="control-label col-xs-3 required"> Username </label>
                                 <div class="col-xs-8">
                                     <input type="text" name="username" class="form-control" value="<?= $this->session->userdata("ses_username") ?>">
-                                    <!-- <div class="text-danger"><?php echo form_error('username'); ?></div> -->
+
                                     <div class="alert-danger"><?php echo form_error('username'); ?></div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <label class="control-label col-xs-3"> Password </label>
                                 <div class="col-xs-8">
                                     <input type="password" name="password" class="form-control" value="">
-                                    <!-- <div class="text-danger"><?php echo form_error('password'); ?></div> -->
+
                                     <div class="alert-danger"><?php echo form_error('password'); ?></div>
                                 </div>
                             </div>

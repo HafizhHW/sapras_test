@@ -314,7 +314,7 @@ class Auth extends CI_Controller
   public function _rulesUpdate()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'trim|max_length[50]');
-    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|');
+    $this->form_validation->set_rules('username', 'Username', 'trim|min_length[6]|max_length[15]');
     $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[12]');
   }
 
