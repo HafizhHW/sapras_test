@@ -182,7 +182,7 @@ class Auth extends CI_Controller
   //TESTING
   public function update_profile()
   {
-    $this->_rules();
+    $this->_rulesUpdate();
     if ($this->form_validation->run() == FALSE) {
       $this->set_profile();
     } else {
@@ -314,8 +314,8 @@ class Auth extends CI_Controller
   public function _rulesUpdate()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'trim|max_length[50]');
-    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|', array('required' => '%s harus diisi !!!'));
-    $this->form_validation->set_rules('pass', 'Password', 'trim|min_length[6]|max_length[12]');
+    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|');
+    $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[12]');
   }
 
   public function Logout()
