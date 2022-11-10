@@ -30,7 +30,7 @@
                 <!-- left column -->
                 <div class="col-md-8">
                     <!-- general form elements -->
-                    <!-- <?= $this->session->flashdata('pesan'); ?> -->
+                    <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div>
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Edit Profile</h3>
@@ -43,7 +43,9 @@
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Nama </label>
                                 <div class="col-xs-8">
-                                    <input type="text" name="nama" class="form-control" value="<?= $this->session->userdata("ses_nama") ?>" readonly>
+                                    <input type="text" name="nama" class="form-control" value="<?= $this->session->userdata("ses_nama") ?>">
+                                    <input type="hidden" name="akses" class="form-control" value="<?= $this->session->userdata("akses") ?>" readonly>
+                                    <input type="hidden" name="id" class="form-control" value="<?= $this->session->userdata("ses_id") ?>" readonly>
                                     <div class="text-danger"><?php echo form_error('nama'); ?></div>
                                 </div>
                             </div>
@@ -53,6 +55,13 @@
                                 <div class="col-xs-8">
                                     <input type="text" name="username" class="form-control" value="<?= $this->session->userdata("ses_username") ?>">
                                     <div class="text-danger"><?php echo form_error('username'); ?></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3"> Password </label>
+                                <div class="col-xs-8">
+                                    <input type="password" name="password" class="form-control" value="">
+                                    <div class="text-danger"><?php echo form_error('password'); ?></div>
                                 </div>
                             </div>
 
