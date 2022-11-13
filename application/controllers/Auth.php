@@ -115,7 +115,20 @@ class Auth extends CI_Controller
     $this->load->view('templates/footer');
   }
 
-  // TRUE
+  public function ViewProfile()
+  {
+    $data['title'] = "Profile";
+    $data['judul'] = "Profile";
+    $data['error'] = '';
+    $data['profile'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_user/V_Profile', $data);
+    $this->load->view('templates/footer');
+  }
+
+  // DEFAULT
   // public function update_profile()
   // {
 
@@ -179,7 +192,7 @@ class Auth extends CI_Controller
   //   }
   // }
 
-  //TESTING
+  //TRUE
   public function update_profile()
   {
     $this->_rulesUpdate();

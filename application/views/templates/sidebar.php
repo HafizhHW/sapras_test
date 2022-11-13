@@ -33,10 +33,14 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
+                            <!-- <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
+                                                            ?>" href="<?php echo base_url('Auth/ViewProfile')
+                                                                ?>"> -->
                             <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
                                                     ?>" href="<?php echo base_url('Auth/set_profile')
-                                                                ?>">
-                                <i class="fas fa-fw fa-user-tie"></i> Profile</a>
+                                                                            ?>">
+                                <i class="fas fa-fw fa-user-tie"></i> Profile
+                            </a>
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item" href="<?php echo base_url('Auth/Logout') ?>" id="btn-logout">

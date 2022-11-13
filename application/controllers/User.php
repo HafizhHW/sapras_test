@@ -242,6 +242,19 @@ class User extends CI_Controller
     redirect('User/ViewTempat');
   }
 
+  // public function ViewProfile()
+  // {
+  //   $data['title'] = "Profile";
+  //   $data['judul'] = "Profile";
+  //   $data['error'] = '';
+  //   $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+
+  //   $this->load->view('templates/header', $data);
+  //   $this->load->view('templates/sidebar');
+  //   $this->load->view('F_user/V_Profile', $data);
+  //   $this->load->view('templates/footer');
+  // }
+
   public function _usernameRegex($userName)
   {
     if (preg_match('/^[a-z0-9]+$/', $userName)) {
