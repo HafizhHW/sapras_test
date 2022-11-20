@@ -15,12 +15,6 @@ class Auth extends CI_Controller
     $this->load->view('Login');
   }
 
-  // function Log()
-  // {
-  //   check_already_login();
-  //   $this->load->view('Login');
-  // }
-
   public function Log_act()
   {
 
@@ -58,7 +52,7 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('success', "Selamat Datang $nm");
 
         redirect('Barang');
-      } else { //jika login sebagai kasir
+      } else { //jika login sebagai user
         $cek_kasir = $this->Log_model->auth_user($username, $password);
         if ($cek_kasir->num_rows() > 0) {
           $data = $cek_kasir->row_array();
@@ -91,20 +85,6 @@ class Auth extends CI_Controller
         }
       }
     }
-  }
-
-
-  public function ViewProfile()
-  {
-    $data['title'] = "Profile";
-    $data['judul'] = "Profile";
-    $data['error'] = '';
-    $data['profile'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
-    $this->load->view('F_user/V_Profile', $data);
-    $this->load->view('templates/footer');
   }
 
   public function _rules()
