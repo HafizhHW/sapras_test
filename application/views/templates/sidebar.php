@@ -35,10 +35,10 @@
 
                             <!-- <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
                                                             ?>" href="<?php echo base_url('Auth/ViewProfile')
-                                                                ?>"> -->
+                                                                        ?>"> -->
                             <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
-                                                    ?>" href="<?php echo base_url('Auth/set_profile')
-                                                                            ?>">
+                                                    ?>" href="<?php echo base_url('User/set_profile')
+                                                                ?>">
                                 <i class="fas fa-fw fa-user-tie"></i> Profile
                             </a>
                             <div class="dropdown-divider"></div>
@@ -192,7 +192,7 @@
                                     <i class="fas fa-fw fa-database"></i>
                                     <!-- <i class="fas fa-fw fa-archive"></i> -->
                                     <p>
-                                        Data Barang Rusakk
+                                        Data Barang Rusak
                                         <!-- <span class="right badge badge-danger">New</span> -->
                                     </p>
                                 </a>

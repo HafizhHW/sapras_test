@@ -7,7 +7,6 @@ class Auth extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    // check_already_login();
   }
 
   public function index()
@@ -24,7 +23,7 @@ class Auth extends CI_Controller
 
   public function Log_act()
   {
-    // check_already_login();
+
     $this->_rules();
     if ($this->form_validation->run() == FALSE) {
       $this->index();
@@ -87,33 +86,13 @@ class Auth extends CI_Controller
             })
           </Script>
 
-      <?php
+<?php
 
         }
       }
     }
   }
 
-  public function set_profile()
-  {
-    $data['title'] = "Edit";
-    $data['judul'] = "Edit Profile";
-    $data['error'] = '';
-
-    // $user = $this->db->get('tbl_admin');
-    // $user = $this->db->get('tbl_user');
-    // $where['id_project'] = $id_project;
-    // $data['user'] = $this->db->get('tbl_admin');
-    // $data['user'] = $this->db->get('tbl_user');
-
-    $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
-
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
-    $this->load->view('F_user/Update_profile', $data);
-    $this->load->view('templates/footer');
-  }
 
   public function ViewProfile()
   {
@@ -128,207 +107,10 @@ class Auth extends CI_Controller
     $this->load->view('templates/footer');
   }
 
-  // DEFAULT
-  // public function update_profile()
-  // {
-
-  //   $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
-  //   $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
-
-  //   //print_r($akses);exit;
-
-  //   if ($akses == 1) {
-
-  //     $nama = $this->input->post('nama');
-  //     $username = $this->input->post('username');
-
-
-  //     if ($this->input->post('password') != "") {
-  //       $password = $this->input->post('password');
-  //       $this->db->query("UPDATE tbl_admin SET username='{$username}',pass=MD5('{$password}'),nama = '{$nama}'
-  // 		WHERE id_admin = '{$id}'");
-  //     } else {
-  //       $data = [
-  //         'nama' => $nama,
-  //         'username' => $username
-  //       ];
-  //       $this->db->where('id_admin', $id);
-  //       $this->db->update('tbl_admin', $data);
-  //     }
-
-  //     $this->session->set_flashdata('pesan', '
-  //     <div class="alert alert-success alert-dismissible fade show" role="alert">
-  //       Data Berhasil Di Ubah !
-  //       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  //         <span aria-hidden="true">&times;</span>
-  //       </button>
-  //     </div>');
-  //     redirect('Auth/set_profile');
-  //   } else {
-  //     $nama = $this->input->post('nama');
-  //     $username = $this->input->post('username');
-
-  //     if ($this->input->post('password') != "") {
-  //       $password = $this->input->post('password');
-  //       $this->db->query("UPDATE tbl_user SET username='{$username}',pass=MD5('{$password}'),nama = '{$nama}'
-  // 		WHERE id_user = '{$id}'");
-  //     } else {
-  //       $data = [
-  //         'nama' => $nama,
-  //         'username' => $username
-  //       ];
-
-  //       $this->db->where('id_user', $id);
-  //       $this->db->update('tbl_user', $data);
-  //     }
-  //     $this->session->set_flashdata('pesan', '
-  //     <div class="alert alert-success alert-dismissible fade show" role="alert">
-  //       Data Berhasil Di Ubah !
-  //       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  //         <span aria-hidden="true">&times;</span>
-  //       </button>
-  //     </div>');
-  //     redirect('Auth/set_profile');
-  //   }
-  // }
-
-  //TRUE
-  public function update_profile()
-  {
-    $this->_rulesUpdate();
-    if ($this->form_validation->run() == FALSE) {
-      $this->set_profile();
-    } else {
-      ?>
-      <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
-      <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
-      <style>
-        body {
-          font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
-          font-size: 1.125em;
-          font-weight: normal;
-        }
-      </style>
-
-      <body></body>
-      <?php
-
-      $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
-      $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
-
-      //print_r($akses);exit;
-
-      if ($akses == 1) {
-
-        $nama = $this->input->post('nama');
-        $username = $this->input->post('username');
-
-
-        if ($this->input->post('password') != "") {
-          $password = $this->input->post('password');
-          $this->db->query("UPDATE tbl_admin SET username='{$username}',pass=MD5('{$password}'),nama = '{$nama}'
-  		WHERE id_admin = '{$id}'");
-        } else {
-          $data = [
-            'nama' => $nama,
-            'username' => $username
-          ];
-          $this->db->where('id_admin', $id);
-          $this->db->update('tbl_admin', $data);
-        }
-      } else {
-        $nama = $this->input->post('nama');
-        $username = $this->input->post('username');
-
-        if ($this->input->post('password') != "") {
-          $password = $this->input->post('password');
-          $this->db->query("UPDATE tbl_user SET username='{$username}',pass=MD5('{$password}'),nama = '{$nama}'
-  		WHERE id_user = '{$id}'");
-        } else {
-          $data = [
-            'nama' => $nama,
-            'username' => $username
-          ];
-
-          $this->db->where('id_user', $id);
-          $this->db->update('tbl_user', $data);
-        }
-      }
-      ?>
-
-      <Script>
-        Swal.fire({
-          icon: 'success',
-          title: 'Berhasil',
-          text: 'Data Berhasil Di Ubah. Silahkan Login Kembali !',
-          showConfirmButton: true,
-          // timer: 1500
-        }).then((result) => {
-          window.location = '<?= base_url('Auth/Logout') ?>';
-        })
-      </Script>
-
-<?php
-    }
-  }
-
-  //FALSE
-  // public function update_profile()
-  // {
-
-  //   $id = $this->input->post($this->session->userdata('sess_id'));
-
-  //   if ($this->session->userdata('akses', '1')) {
-  //     $nama = $this->input->post('nama');
-  //     $username = $this->input->post('username');
-
-  //     $data = [
-  //       'nama' => $nama,
-  //       'username' => $username
-  //     ];
-  //     $this->db->where('id_admin', $id);
-  //     $this->db->update('tbl_admin', $data);
-  //     $this->session->set_flashdata('pesan', '
-  //     <div class="alert alert-success alert-dismissible fade show" role="alert">
-  //       Data Berhasil Di Ubah !
-  //       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  //         <span aria-hidden="true">&times;</span>
-  //       </button>
-  //     </div>');
-  //     redirect('Auth/set_profile');
-  //   } else {
-  //     $nama = $this->input->post('nama');
-  //     $username = $this->input->post('username');
-
-  //     $data = [
-  //       'nama' => $nama,
-  //       'username' => $username
-  //     ];
-
-  //     $this->db->where('id_user', $id);
-  //     $this->db->update('tbl_user', $data);
-  //     $this->session->set_flashdata('pesan', '
-  //     <div class="alert alert-success alert-dismissible fade show" role="alert">
-  //       Data Berhasil Di Ubah !
-  //       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  //         <span aria-hidden="true">&times;</span>
-  //       </button>
-  //     </div>');
-  //     redirect('Auth/set_profile');
-  //   }
-  // }
-
   public function _rules()
   {
     $this->form_validation->set_rules('username', 'Username', 'required', array('required' => '%s harus diisi !!!'));
     $this->form_validation->set_rules('pass', 'Password', 'required', array('required' => '%s harus diisi !!!'));
-  }
-
-  public function _rulesUpdate()
-  {
-    $this->form_validation->set_rules('nama', 'Nama', 'trim|max_length[50]');
-    $this->form_validation->set_rules('username', 'Username', 'trim|min_length[6]|max_length[15]');
-    $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[12]');
   }
 
   public function Logout()

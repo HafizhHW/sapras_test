@@ -38,7 +38,7 @@
                         <!-- /.card-header -->
                         <!-- form start -->
 
-                        <?php echo form_open_multipart('Auth/update_profile'); ?>
+                        <?php echo form_open_multipart('User/update_profiles'); ?>
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="control-label col-xs-3 required"> Nama </label>
@@ -59,14 +59,15 @@
                                     <div class="alert-danger"><?php echo form_error('username'); ?></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+
+                            <!-- <div class="form-group">
                                 <label class="control-label col-xs-3"> Password </label>
                                 <div class="col-xs-8">
                                     <input type="password" name="password" class="form-control" value="">
 
                                     <div class="alert-danger"><?php echo form_error('password'); ?></div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- <div class="form-group">
                                 <label class="control-label col-xs-3 required">Current Password </label>
