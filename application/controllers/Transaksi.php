@@ -9,6 +9,7 @@ class Transaksi extends CI_Controller
   {
     parent::__construct();
     check_not_login();
+    check_access();
   }
 
   public function index()

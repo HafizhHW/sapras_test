@@ -17,3 +17,12 @@ function check_not_login()
         redirect('Auth');
     }
 }
+
+function check_access()
+{
+    $ci = &get_instance();
+    $user_session = $ci->session->userdata('akses') == '1';
+    if (!$user_session) {
+        redirect('Barang');
+    }
+}

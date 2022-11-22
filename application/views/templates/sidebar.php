@@ -36,7 +36,7 @@
                             <!-- <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
                                                             ?>" href="<?php echo base_url('Auth/ViewProfile')
                                                                         ?>"> -->
-                            <a class="dropdown-item <? //php echo $this->uri->segment(1) == 'user' ? 'active' : '' 
+                            <a class="dropdown-item <?php echo $this->uri->segment(2) == 'set_profile' ? 'active' : ''
                                                     ?>" href="<?php echo base_url('User/set_profile')
                                                                 ?>">
                                 <i class="fas fa-fw fa-user-tie"></i> Profile

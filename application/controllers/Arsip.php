@@ -27,6 +27,7 @@ class Arsip extends CI_Controller
 
   function add_arsip()
   {
+    check_access();
     $data['title'] = "Dokumen";
     $data['judul'] = "Data Dokumen";
     $data['error'] = '';
@@ -39,6 +40,7 @@ class Arsip extends CI_Controller
 
   function edit_arsip($id_arsip)
   {
+    check_access();
     $data['title'] = "Dokumen";
     $data['judul'] = "Data Dokumen";
     $data['error'] = '';

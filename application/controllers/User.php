@@ -26,6 +26,7 @@ class User extends CI_Controller
 
   public function ViewUser()
   {
+    check_access();
     $data['title'] = "Administrator";
     $data['judul'] = "Data User";
     $data['error'] = '';
@@ -95,6 +96,7 @@ class User extends CI_Controller
 
   public function ViewTempat()
   {
+    check_access();
     $data['title'] = "Aministrator";
     $data['judul'] = "Data Tempat";
     $data['error'] = '';
@@ -111,6 +113,7 @@ class User extends CI_Controller
 
   function add_admin()
   {
+    check_access();
     $data['title'] = "Administrator";
     $data['judul'] = "Data Admin";
     $data['error'] = '';
@@ -123,6 +126,7 @@ class User extends CI_Controller
 
   function add_user()
   {
+    check_access();
     $data['title'] = "User";
     $data['judul'] = "Data User";
     $data['error'] = '';
@@ -135,6 +139,7 @@ class User extends CI_Controller
 
   function add_tempat()
   {
+    check_access();
     $data['title'] = "Tempat Penyimpanan";
     $data['judul'] = "Data Tempat";
     $data['error'] = '';

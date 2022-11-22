@@ -87,10 +87,22 @@ class Auth extends CI_Controller
     }
   }
 
+  public function _usernameRegex($userName)
+  {
+    if (preg_match('/^[a-z0-9]+$/', $userName)) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+  }
+
   public function _rules()
   {
-    $this->form_validation->set_rules('username', 'Username', 'required', array('required' => '%s harus diisi !!!'));
-    $this->form_validation->set_rules('pass', 'Password', 'required', array('required' => '%s harus diisi !!!'));
+    // $this->form_validation->set_rules('username', 'Username', 'required', array('required' => '%s harus diisi !!!'));
+    // $this->form_validation->set_rules('pass', 'Password', 'required', array('required' => '%s harus diisi !!!'));
+    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|xss_clean', array('required' => '%s harus diisi !!!'));
+    // $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|xss_clean|callback__usernameRegex', array('required' => '%s harus diisi !!!'));
+    $this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[6]|max_length[12]', array('required' => '%s harus diisi !!!'));
   }
 
   public function Logout()
