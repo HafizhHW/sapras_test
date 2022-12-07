@@ -269,6 +269,18 @@ class User extends CI_Controller
     $this->load->view('templates/footer');
   }
 
+  public function ChangePassword()
+  {
+    $data['title'] = "Edit";
+    $data['judul'] = "Change Password";
+    $data['error'] = '';
+    $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('F_user/V_ChangePassword', $data);
+    $this->load->view('templates/footer');
+  }
 
   // public function ViewProfile()
   // {
@@ -496,6 +508,28 @@ class User extends CI_Controller
   }
 
 
+  public function ChangePwd_act()
+  {
+    $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+
+    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password2]');
+    $this->form_validation->set_rules('new_password2', 'Repeat Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password1]');
+    // $this->_rulesChangePwd();
+    if ($this->form_validation->run() == FALSE) {
+      $this->ChangePassword();
+    } else {
+      $current_password = $this->input->post('current_password');
+      if (!password_verify($current_password, $data['sess_id']['password'])) {
+        // $this->session->set_flashdata('msg','<div class="alest alert-success" role="alert">Wrong Current Password!</div>');
+        $this->session->set_flashdata('error', 'Wrong Current Password !');
+
+        var_dump($data);
+        redirect('User/ChangePassword');
+      }
+    }
+  }
+
   public function _usernameRegex($userName)
   {
     if (preg_match('/^[a-z0-9]+$/', $userName)) {
@@ -515,9 +549,16 @@ class User extends CI_Controller
 
   public function _rulesUpdate()
   {
-    $this->form_validation->set_rules('nama', 'Nama', 'trim|max_length[50]');
-    $this->form_validation->set_rules('username', 'Username', 'trim|min_length[6]|max_length[15]');
-    $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[12]');
+    $this->form_validation->set_rules('nama', 'Nama', 'trim|required|max_length[50]');
+    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]');
+    // $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[12]');
+  }
+
+  public function _rulesChangePwd()
+  {
+    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password2]');
+    $this->form_validation->set_rules('new_password2', 'Repeat Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password1]');
   }
 }
 

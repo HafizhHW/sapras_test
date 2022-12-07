@@ -19,6 +19,15 @@ if (flash) {
     })
 }
 
+var flash = $('#flash').data('flash');
+if (flash) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: flash,
+        // footer: '<a href="">Why do I have this issue?</a>'
+    })
+}
 
 $(document).on('click', '#btn-hapus', function (e) {
     e.preventDefault();

@@ -125,6 +125,8 @@
                         <div class="card-footer">
                             <div class="btn float-right">
 
+                                <a href="<?= base_url('User/ChangePassword') ?>" class="btn btn-sm btn-secondary" title="Change Password" id=""><i class="fa-solid fa-key"></i> Change Password </a>
+
                                 <button type="submit" class="btn btn-sm btn-success"><i class="fa-solid fa-floppy-disk"></i> Update</button>
 
                             </div>
