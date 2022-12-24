@@ -22,8 +22,8 @@ if (flash) {
 var flash = $('#flash').data('flash');
 if (flash) {
     Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: 'success',
+        title: 'Success',
         text: flash,
         // footer: '<a href="">Why do I have this issue?</a>'
     })
