@@ -45,6 +45,9 @@
 <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= base_url() ?>assets/sweetalert2/MyScriptAlert.js"></script>
 
+
+
+
 <!-- <script>
     var flash = $('#flash').data('flash');
     if (flash) {
@@ -55,7 +58,7 @@
         })
     }
 
-    $(document).on('click', '#btn-hapus', function(e) {
+ $(document).on('click', '#btn-hapus', function(e) {
         e.preventDefault();
         var link = $(this).attr('href');
 

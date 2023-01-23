@@ -4,14 +4,27 @@ if (flash) {
     Swal.fire({
         icon: 'warning',
         title: 'Warning',
+        type : 'warning',
         text: flash
     })
+}
+
+var flash = $('#flashData').data('flash');
+if (flash){
+Swal.fire({
+    icon: 'error',
+    type: 'error',
+    title: 'Oops...',
+    text: flash,
+    // footer: '<a href="">Why do I have this issue?</a>'
+  })
 }
 
 var flash = $('#flash').data('flash');
 if (flash) {
     Swal.fire({
         icon: 'success',
+        type: 'success',
         title: 'Success',
         text: flash,
         showConfirmButton: false,
@@ -19,15 +32,15 @@ if (flash) {
     })
 }
 
-var flash = $('#flash').data('flash');
-if (flash) {
-    Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: flash,
-        // footer: '<a href="">Why do I have this issue?</a>'
-    })
-}
+// var flash = $('#flash').data('flash');
+// if (flash) {
+//     Swal.fire({
+//         icon: 'success',
+//         title: 'Success',
+//         text: flash,
+//         // footer: '<a href="">Why do I have this issue?</a>'
+//     })
+// }
 
 $(document).on('click', '#btn-hapus', function (e) {
     e.preventDefault();

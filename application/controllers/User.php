@@ -521,10 +521,13 @@ class User extends CI_Controller
     } else {
       $current_password = $this->input->post('current_password');
       if (!password_verify($current_password, $data['sess_id']['password'])) {
-        // $this->session->set_flashdata('msg','<div class="alest alert-success" role="alert">Wrong Current Password!</div>');
+        
         $this->session->set_flashdata('error', 'Wrong Current Password !');
+        
 
-        var_dump($data);
+     
+
+        
         redirect('User/ChangePassword');
       }
     }

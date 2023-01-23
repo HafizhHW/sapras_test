@@ -22,10 +22,11 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <!-- left column -->
+                <div id="flashData" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
                 <div class="col-md-8">
                     <!-- general form elements -->
-                    <!-- <div id="flash" data-flash="<?= $this->session->flashdata('success'); ?>"></div> -->
-                    <div id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
+                    
+                    <!-- <div id="flashData" data-flash="<?= $this->session->flashdata('error'); ?>"></div> -->
 
                     <div class="card card-primary">
                         <div class="card-header">
@@ -78,7 +79,7 @@
                             </div>
                         </div>
                         <?php echo form_close(); ?>
-                        <?php echo $this->session->flashdata('error'); ?>
+                        <!-- <?php echo $this->session->flashdata('error'); ?> -->
 
                     </div>
                     <!-- /.card -->
