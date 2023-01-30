@@ -53,9 +53,9 @@ class Auth extends CI_Controller
 
         redirect('Barang');
       } else { //jika login sebagai user
-        $cek_kasir = $this->Log_model->auth_user($username, $password);
-        if ($cek_kasir->num_rows() > 0) {
-          $data = $cek_kasir->row_array();
+        $cek_user = $this->Log_model->auth_user($username, $password);
+        if ($cek_user->num_rows() > 0) {
+          $data = $cek_user->row_array();
           $this->session->set_userdata('masuk', TRUE);
           $this->session->set_userdata('akses', '2');
           $this->session->set_userdata('ses_id', $data['id_user']);

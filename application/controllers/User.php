@@ -260,7 +260,7 @@ class User extends CI_Controller
     // $data['user'] = $this->db->get('tbl_admin');
     // $data['user'] = $this->db->get('tbl_user');
 
-    $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+    // $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
 
 
     $this->load->view('templates/header', $data);
@@ -274,13 +274,31 @@ class User extends CI_Controller
     $data['title'] = "Edit";
     $data['judul'] = "Change Password";
     $data['error'] = '';
-    $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+    // $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+    // $data['admin'] = $this->db->get_where('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
+   
+    $data['admin'] = $this->User_model->get_data('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
+   
+    $data['user'] = $this->User_model->get_data('tbl_user',['username' =>$this->session->userdata('sess_username')==true])->row_array();
+    // $data['user'] = $this->User_model->current_user();
+   
+    // $data['user'] = $this->User_model->get_data('tbl_admin')->result();
+    // $pass=$this->input->post('password', true);
+    // $data['user'] = $this->session->userdata('ses_id');
+
+    // $id = $this->session->userdata('akses') == '2' || $this->session->userdata('akses') == '2';
+    // $user = $this->db->get_where($id, ['sess_id' => $this->session->userdata('sess_id')])->row_array();
+    // $data['user'] = $this->session->userdata('sess_id');
+    // var_dump($data['admin']);
+    // var_dump($id);
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('F_user/V_ChangePassword', $data);
     $this->load->view('templates/footer');
   }
+
+  
 
   // public function ViewProfile()
   // {
@@ -507,33 +525,206 @@ class User extends CI_Controller
     }
   }
 
-
-  public function ChangePwd_act()
+public function _rulesChangePwd()
   {
-    $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
-
     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
     $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password2]');
     $this->form_validation->set_rules('new_password2', 'Repeat Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password1]');
-    // $this->_rulesChangePwd();
-    if ($this->form_validation->run() == FALSE) {
-      $this->ChangePassword();
-    } else {
-      $current_password = $this->input->post('current_password');
-      if (!password_verify($current_password, $data['sess_id']['password'])) {
-        
-        $this->session->set_flashdata('error', 'Wrong Current Password !');
-        
-
-     
-
-        
-        redirect('User/ChangePassword');
-      }
-    }
   }
 
-  public function _usernameRegex($userName)
+public function ChangePwd_act()
+  {
+   
+    
+    $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
+    $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
+    
+    $nama = $this->input->post('nama');
+    $username = $this->input->post('username');
+    $password = $this->input->post('new_password1');
+
+      //print_r($akses);exit;
+
+      if ($akses == 1) 
+      {
+
+          if ($this->input->post('password') != "") {
+          $password = $this->input->post('new_password1');
+          $this->db->query("UPDATE tbl_admin SET pass=MD5('{$password}')
+            WHERE id_admin = '{$id}'");
+        } 
+        else 
+        {
+          ?>
+      <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+      <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+      <style>
+        body {
+          font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+          font-size: 1.125em;
+          font-weight: normal;
+        }
+      </style>
+
+      <body></body>
+      <?php
+          $data = [
+            'pass' => MD5($password)
+          ];
+          $this->db->where('id_admin', $id);
+          $this->db->update('tbl_admin', $data);
+
+          ?>
+            <Script>
+            Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data Berhasil Di Ubah. Silahkan Login Kembali !',
+            showConfirmButton: true,
+            // timer: 1500
+            }).then((result) => {
+            window.location = '<?= base_url('Auth/Logout') ?>';
+            })
+            </Script>
+          <?php
+
+        }
+
+      } 
+      else 
+      {
+
+        if ($this->input->post('password') != "") 
+        {
+          $password = $this->input->post('new_password1');
+          $this->db->query("UPDATE tbl_user SET pass=MD5('{$password}')
+            WHERE id_user = '{$id}'");
+        } 
+        else 
+        {
+          ?>
+      <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+      <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+      <style>
+        body {
+          font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+          font-size: 1.125em;
+          font-weight: normal;
+        }
+      </style>
+
+      <body></body>
+      <?php
+          $data = [
+            'pass' => MD5($password)
+          ];
+
+          $this->db->where('id_user', $id);
+          $this->db->update('tbl_user', $data);
+
+          ?>
+            <Script>
+            Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data Berhasil Di Ubah. Silahkan Login Kembali !',
+            showConfirmButton: true,
+            // timer: 1500
+            }).then((result) => {
+            window.location = '<?= base_url('Auth/Logout') ?>';
+            })
+            </Script>
+          <?php
+
+        }
+      }
+      
+  }
+
+  
+// public function ChangePwd_act()
+//   {
+//     // $data['admin'] = $this->db->get_where('tbl_admin',['username' =>$this->session->userdata('sess_id')])->row_array();
+//     $data['admin'] = $this->User_model->get_data('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
+//     $data['user'] = $this->db->get_where('tbl_user',['username' =>$this->session->userdata('sess_username')])->row_array();
+//     // $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+//     // $data['user'] = $this->User_model->get_data('tbl_admin')->result();
+//     // $data['user'] = $this->session->userdata('sess_id');
+    
+//     $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
+//     $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
+//     $current_password = $this->input->post('current_password');
+          
+//     // if ($this->form_validation->run() == TRUE ) {
+//     // var_dump($data);
+//     // print_r($data['admin']);exit;
+
+     
+//     $current_password = $this->input->post('current_password');
+//     $new_password = $this->input->post('new_password1');
+//     if ($akses == 1)
+//     {  
+//        if(!password_verify($current_password, $data->MD5->pass))
+//       {
+//         $this->session->set_flashdata('error', "Wrong Current Password !");
+//         redirect('User/ChangePassword');
+//       }
+//       else
+//       {
+//          if($current_password == $new_password)
+//         {
+//           $this->session->set_flashdata('error', "New password cannot be the same ascurrent password !");
+//           redirect('User/ChangePassword');
+//         }
+//           else
+//         {
+//           $encrypt_password = MD5($new_password);
+
+//           $this->db->set('pass', $encrypt_password);
+//           $this->db->where('id_admin', $this->session->userdata('sess_id'));
+//           $this->db->update('tbl_admin');
+
+//           $this->session->set_flashdata('success', "Password Changed!");
+//           redirect('User/ChangePassword');
+        
+//         }
+//       }
+//     }
+//     else
+//     {
+//         // $current_password = $this->input->post('current_password');$current_password = $this->input->post('current_password');
+//         // $new_password = $this->input->post('new_password1');
+//         if(!password_verify($current_password, $data['user']['pass']))
+//         {
+//           $this->session->set_flashdata('error', "Wrong Current Password !");
+//           redirect('User/ChangePassword');
+//         }
+//         else
+//         {
+//           if($current_password == $new_password)
+//           {
+//             $this->session->set_flashdata('error', "New password cannot be the same ascurrent password !");
+//             redirect('User/ChangePassword');
+//           }
+//           else
+//           {
+//             $encrypt_password = MD5($new_password);
+
+//             $this->db->set('pass', $encrypt_password);
+//             $this->db->where('id_user', $id);
+//             $this->db->update('tbl_user');
+
+//             $this->session->set_flashdata('success', "Password Changed!");
+//             redirect('User/ChangePassword');
+
+//           }
+//         }
+//       }
+//   }
+      
+
+  
+public function _usernameRegex($userName)
   {
     if (preg_match('/^[a-z0-9]+$/', $userName)) {
       return TRUE;
@@ -542,7 +733,7 @@ class User extends CI_Controller
     }
   }
 
-  function _rules()
+function _rules()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'trim|required|max_length[50]', array('required' => '%s harus diisi !!!'));
     // $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|xss_clean|callback__usernameRegex', array('required' => '%s harus diisi !!!'));
@@ -550,19 +741,14 @@ class User extends CI_Controller
     $this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[6]|max_length[12]', array('required' => '%s harus diisi !!!'));
   }
 
-  public function _rulesUpdate()
+public function _rulesUpdate()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'trim|required|max_length[50]');
     $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]');
     // $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[12]');
   }
 
-  public function _rulesChangePwd()
-  {
-    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
-    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password2]');
-    $this->form_validation->set_rules('new_password2', 'Repeat Password', 'required|trim|min_length[6]|max_length[12]|matches[new_password1]');
-  }
+  
 }
 
 

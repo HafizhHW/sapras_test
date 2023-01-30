@@ -4,7 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class User_model extends CI_Model
 {
-
+  private $_table = "tbl_admin";
+	const SESSION_KEY = 'sess_id';
   // ------------------------------------------------------------------------
 
   public function __construct()
@@ -38,6 +39,13 @@ class User_model extends CI_Model
     $this->db->where($where);
     $this->db->delete($table);
   }
+
+  // public function get_data_login()
+  // {
+  //   $user_id = $this->session->userdata('sess_id');
+	// 	$query = $this->db->get_where($this->_table, ['id_admin' => $user_id]);
+	// 	return $query->result();
+  // }
 
   public function get_data_login()
   {
@@ -80,6 +88,18 @@ class User_model extends CI_Model
   {
     return $this->db->get('tbl_admin')->num_rows();
   }
+
+  public function current_user()
+	{
+		if (!$this->session->has_userdata(self::SESSION_KEY)) {
+			return null;
+		}
+
+		$user_id = $this->session->userdata(self::SESSION_KEY);
+		$query = $this->db->get_where($this->_table, ['id_admin' => $user_id]);
+		return $query->row();
+	}
+
 }
 
 /* End of file Admin_model.php */
