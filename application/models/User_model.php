@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class User_model extends CI_Model
 {
-  private $_table = "tbl_admin";
+  private $_admin = "tbl_admin";
 	const SESSION_KEY = 'sess_id';
   // ------------------------------------------------------------------------
 
@@ -47,12 +47,42 @@ class User_model extends CI_Model
 	// 	return $query->result();
   // }
 
+  // public function get_data_login($username, $password)
+  // {
+  //   return $this->db->from('tbl_admin')
+  //     ->select('username')
+  //     ->where('username', $username)
+  //     ->where('pass', MD5($password))
+  //     ->get()
+  //     ->result();
+  // }
+
   public function get_data_login()
   {
     return $this->db->from('tbl_admin')
-      ->join('tbl_user', 'tbl_user.id_user=tbl_admin.id_admin')
+      // ->join('tbl_user', 'tbl_user.id_user=tbl_admin.id_admin')
       ->get()
       ->result();
+  }
+
+  
+  function get_pass($table)
+  {
+    $this->db->from('tbl_admin a');
+    $this->db->select('a.pass');
+    $this->db->where('a.pass = a.pass');
+    $data = $this->db->get($table);
+    return $data;
+  }
+
+
+  public function get_sessAdmin($username, $password)
+  {
+    $query = $this->db->select('username')
+    ->from('tbl_admin')
+    ->where('username', $username)
+    ->where('pass', MD5($password));
+    $user = $query->result();
   }
 
   function get_dataPage($table)

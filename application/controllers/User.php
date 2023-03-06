@@ -274,13 +274,19 @@ class User extends CI_Controller
     $data['title'] = "Edit";
     $data['judul'] = "Change Password";
     $data['error'] = '';
-    // $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+
+    // $password = $this->session->userdata('sess_username'); // Replace with actual password
+    // $query = $this->db->query("SELECT pass FROM tbl_admin WHERE username = '$password'");
+    // $user = $query->row();
+
+    // $data['admin'] = $this->User_model->get_data('tbl_admin',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    // $data['admin'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
     // $data['admin'] = $this->db->get_where('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
    
-    $data['admin'] = $this->User_model->get_data('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
+    // $data['admin'] = $this->User_model->get_data('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
    
-    $data['user'] = $this->User_model->get_data('tbl_user',['username' =>$this->session->userdata('sess_username')==true])->row_array();
-    // $data['user'] = $this->User_model->current_user();
+    // $data['user'] = $this->User_model->get_data('tbl_user',['username' =>$this->session->userdata('sess_username')==true])->row_array();
+    // $data['admin'] = $this->User_model->get_sessAdmin($username, $password);
    
     // $data['user'] = $this->User_model->get_data('tbl_admin')->result();
     // $pass=$this->input->post('password', true);
@@ -378,73 +384,7 @@ class User extends CI_Controller
   // }
 
 
-  //HALF FALSE
-  public function update_profiles()
-  {
-
-    $this->_rulesUpdate();
-    if ($this->form_validation->run() == FALSE) {
-      $this->set_profile();
-    } else {
-?>
-      <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
-      <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
-      <style>
-        body {
-          font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
-          font-size: 1.125em;
-          font-weight: normal;
-        }
-      </style>
-
-      <body></body>
-      <?php
-      $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
-      $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
-
-      if ($akses == 1) {
-
-        $nama = $this->input->post('nama');
-        $username = $this->input->post('username');
-
-        $data = [
-          'nama' => $nama,
-          'username' => $username
-        ];
-        $this->db->where('id_admin', $id);
-        $this->db->update('tbl_admin', $data);
-      } else {
-
-        $nama = $this->input->post('nama');
-        $username = $this->input->post('username');
-
-        $data = [
-          'nama' => $nama,
-          'username' => $username
-        ];
-
-        $this->db->where('id_user', $id);
-        $this->db->update('tbl_user', $data);
-      }
-      ?>
-
-      <Script>
-        Swal.fire({
-          icon: 'success',
-          title: 'Berhasil',
-          text: 'Data Berhasil Di Ubah. Silahkan Login Kembali !',
-          showConfirmButton: true,
-          // timer: 1500
-        }).then((result) => {
-          window.location = '<?= base_url('Auth/Logout') ?>';
-        })
-      </Script>
-
-    <?php
-    }
-  }
-
-
+ 
   //TRUE
   public function update_profile()
   {
@@ -548,26 +488,27 @@ public function ChangePwd_act()
       if ($akses == 1) 
       {
 
-          if ($this->input->post('password') != "") {
-          $password = $this->input->post('new_password1');
-          $this->db->query("UPDATE tbl_admin SET pass=MD5('{$password}')
-            WHERE id_admin = '{$id}'");
+          if ($this->input->post('new_password1') == "") 
+        {
+        $this->session->set_flashdata('error', "You must input New Password !");
+        redirect('User/ChangePassword');
+       
         } 
         else 
-        {
-          ?>
-      <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
-      <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
-      <style>
-        body {
-          font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
-          font-size: 1.125em;
-          font-weight: normal;
-        }
-      </style>
+        {          
+            ?>
+            <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+            <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+            <style>
+              body {
+                font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+                font-size: 1.125em;
+                font-weight: normal;
+              }
+            </style>
 
-      <body></body>
-      <?php
+          <body></body>
+          <?php
           $data = [
             'pass' => MD5($password)
           ];
@@ -594,27 +535,147 @@ public function ChangePwd_act()
       else 
       {
 
-        if ($this->input->post('password') != "") 
+        if ($this->input->post('new_password1') == "") 
         {
-          $password = $this->input->post('new_password1');
-          $this->db->query("UPDATE tbl_user SET pass=MD5('{$password}')
-            WHERE id_user = '{$id}'");
+          $this->session->set_flashdata('error', "You must input New Password !");
+          redirect('User/ChangePassword');
+          
         } 
         else 
         {
+          
           ?>
-      <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
-      <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
-      <style>
-        body {
-          font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
-          font-size: 1.125em;
-          font-weight: normal;
-        }
-      </style>
+          <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+          <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+          <style>
+            body {
+              font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+              font-size: 1.125em;
+              font-weight: normal;
+            }
+          </style>
 
-      <body></body>
-      <?php
+          <body></body>
+          <?php
+          $data = [
+            'pass' => MD5($password)
+          ];
+
+          $this->db->where('id_user', $id);
+          $this->db->update('tbl_user', $data);
+
+          ?>
+            <Script>
+            Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data Berhasil Di Ubah. Silahkan Login Kembali !',
+            showConfirmButton: true,
+            // timer: 1500
+            }).then((result) => {
+            window.location = '<?= base_url('Auth/Logout') ?>';
+            })
+            </Script>
+          <?php
+
+        }
+      }
+      
+  }
+
+public function ChangePwd_act2()
+  {
+   
+    
+    $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
+    $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
+
+    $data['admin'] = $this->User_model->get_data('tbl_admin',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    // $data['admin'] = $this->User_model->get_pass('tbl_admin',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    $data['user'] = $this->db->get_where('tbl_user',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    // $data['admin'] = $this->db->get_where('tbl_admin',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    
+    $pass = $this->input->post('pass');
+    $nama = $this->input->post('nama');
+    $username = $this->input->post('username');
+    $password = $this->input->post('new_password1');
+    $current_password = $this->input->post('current_password');
+    $new_password = $this->input->post('new_password1');
+
+      print_r($data['admin']);exit;
+
+      if ($akses == 1) 
+      {
+
+          if ($this->input->post('new_password1') == "") 
+        {
+        $this->session->set_flashdata('error', "You must input New Password !");
+        redirect('User/ChangePassword');
+       
+        } 
+        else 
+        {          
+            ?>
+            <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+            <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+            <style>
+              body {
+                font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+                font-size: 1.125em;
+                font-weight: normal;
+              }
+            </style>
+
+          <body></body>
+          <?php
+          $data = [
+            'pass' => MD5($password)
+          ];
+          $this->db->where('id_admin', $id);
+          $this->db->update('tbl_admin', $data);
+
+          ?>
+            <Script>
+            Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data Berhasil Di Ubah. Silahkan Login Kembali !',
+            showConfirmButton: true,
+            // timer: 1500
+            }).then((result) => {
+            window.location = '<?= base_url('Auth/Logout') ?>';
+            })
+            </Script>
+          <?php
+
+        }
+
+      } 
+      else 
+      {
+
+        if ($this->input->post('new_password1') == "") 
+        {
+          $this->session->set_flashdata('error', "You must input New Password !");
+          redirect('User/ChangePassword');
+          
+        } 
+        else 
+        {
+          
+          ?>
+          <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.css">
+          <script src="<?= base_url() ?>assets/sweetalert2/sweetalert2.min.js"></script>
+          <style>
+            body {
+              font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+              font-size: 1.125em;
+              font-weight: normal;
+            }
+          </style>
+
+          <body></body>
+          <?php
           $data = [
             'pass' => MD5($password)
           ];
@@ -642,85 +703,85 @@ public function ChangePwd_act()
   }
 
   
-// public function ChangePwd_act()
-//   {
-//     // $data['admin'] = $this->db->get_where('tbl_admin',['username' =>$this->session->userdata('sess_id')])->row_array();
-//     $data['admin'] = $this->User_model->get_data('tbl_admin',['username' =>$this->session->userdata('sess_username')])->row_array();
-//     $data['user'] = $this->db->get_where('tbl_user',['username' =>$this->session->userdata('sess_username')])->row_array();
-//     // $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
-//     // $data['user'] = $this->User_model->get_data('tbl_admin')->result();
-//     // $data['user'] = $this->session->userdata('sess_id');
+public function UpdatePwd_act()
+  {
+    // $data['admin'] = $this->db->get_where('tbl_admin',['username' =>$this->session->userdata('sess_id')])->row_array();
+    $data['admin'] = $this->User_model->get_data('tbl_admin',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    $data['user'] = $this->db->get_where('tbl_user',['pass' =>$this->session->userdata('sess_username')])->row_array();
+    // $data['user'] = $this->User_model->get_data_login($this->session->userdata('sess_id'));
+    // $data['user'] = $this->User_model->get_data('tbl_admin')->result();
+    // $data['user'] = $this->session->userdata('sess_id');
     
-//     $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
-//     $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
-//     $current_password = $this->input->post('current_password');
-          
-//     // if ($this->form_validation->run() == TRUE ) {
-//     // var_dump($data);
-//     // print_r($data['admin']);exit;
+    $id = htmlspecialchars($this->input->post('id', TRUE), ENT_QUOTES);
+    $akses = htmlspecialchars($this->input->post('akses', TRUE), ENT_QUOTES);
+    $current_password = $this->input->post('current_password');
+    $new_password = $this->input->post('new_password1');
+    // if ($this->form_validation->run() == TRUE ) {
+    // var_dump($data);
+    // print_r($data['admin']);exit;
 
      
-//     $current_password = $this->input->post('current_password');
-//     $new_password = $this->input->post('new_password1');
-//     if ($akses == 1)
-//     {  
-//        if(!password_verify($current_password, $data->MD5->pass))
-//       {
-//         $this->session->set_flashdata('error', "Wrong Current Password !");
-//         redirect('User/ChangePassword');
-//       }
-//       else
-//       {
-//          if($current_password == $new_password)
-//         {
-//           $this->session->set_flashdata('error', "New password cannot be the same ascurrent password !");
-//           redirect('User/ChangePassword');
-//         }
-//           else
-//         {
-//           $encrypt_password = MD5($new_password);
+    
+    
+    if ($akses == 1)
+    {  
+       if(!password_verify($current_password, MD5($data['admin']['pass'])))
+      {
+        $this->session->set_flashdata('error', "Wrong Current Password !");
+        redirect('User/ChangePassword');
+      }
+      else
+      {
+         if($current_password == $new_password)
+        {
+          $this->session->set_flashdata('error', "New password cannot be the same ascurrent password !");
+          redirect('User/ChangePassword');
+        }
+          else
+        {
+          $encrypt_password = MD5($new_password);
 
-//           $this->db->set('pass', $encrypt_password);
-//           $this->db->where('id_admin', $this->session->userdata('sess_id'));
-//           $this->db->update('tbl_admin');
+          $this->db->set('pass', $encrypt_password);
+          $this->db->where('id_admin', $this->session->userdata('sess_id'));
+          $this->db->update('tbl_admin');
 
-//           $this->session->set_flashdata('success', "Password Changed!");
-//           redirect('User/ChangePassword');
+          $this->session->set_flashdata('success', "Password Changed!");
+          redirect('User/ChangePassword');
         
-//         }
-//       }
-//     }
-//     else
-//     {
-//         // $current_password = $this->input->post('current_password');$current_password = $this->input->post('current_password');
-//         // $new_password = $this->input->post('new_password1');
-//         if(!password_verify($current_password, $data['user']['pass']))
-//         {
-//           $this->session->set_flashdata('error', "Wrong Current Password !");
-//           redirect('User/ChangePassword');
-//         }
-//         else
-//         {
-//           if($current_password == $new_password)
-//           {
-//             $this->session->set_flashdata('error', "New password cannot be the same ascurrent password !");
-//             redirect('User/ChangePassword');
-//           }
-//           else
-//           {
-//             $encrypt_password = MD5($new_password);
+        }
+      }
+    }
+    else
+    {
+        // $current_password = $this->input->post('current_password');$current_password = $this->input->post('current_password');
+        // $new_password = $this->input->post('new_password1');
+        if(!password_verify($current_password, $data['user']['pass']))
+        {
+          $this->session->set_flashdata('error', "Wrong Current Password !");
+          redirect('User/ChangePassword');
+        }
+        else
+        {
+          if($current_password == $new_password)
+          {
+            $this->session->set_flashdata('error', "New password cannot be the same ascurrent password !");
+            redirect('User/ChangePassword');
+          }
+          else
+          {
+            $encrypt_password = MD5($new_password);
 
-//             $this->db->set('pass', $encrypt_password);
-//             $this->db->where('id_user', $id);
-//             $this->db->update('tbl_user');
+            $this->db->set('pass', $encrypt_password);
+            $this->db->where('id_user', $id);
+            $this->db->update('tbl_user');
 
-//             $this->session->set_flashdata('success', "Password Changed!");
-//             redirect('User/ChangePassword');
+            $this->session->set_flashdata('success', "Password Changed!");
+            redirect('User/ChangePassword');
 
-//           }
-//         }
-//       }
-//   }
+          }
+        }
+      }
+  }
       
 
   

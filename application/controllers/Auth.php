@@ -66,7 +66,7 @@ class Auth extends CI_Controller
           $this->session->set_flashdata('success', "Selamat Datang $nm");
           redirect('Barang');
         } else {
-      ?>
+        ?>
 
           <Script>
             Swal.fire({
@@ -80,7 +80,7 @@ class Auth extends CI_Controller
             })
           </Script>
 
-<?php
+        <?php
 
         }
       }
@@ -100,9 +100,9 @@ class Auth extends CI_Controller
   {
     // $this->form_validation->set_rules('username', 'Username', 'required', array('required' => '%s harus diisi !!!'));
     // $this->form_validation->set_rules('pass', 'Password', 'required', array('required' => '%s harus diisi !!!'));
-    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|xss_clean', array('required' => '%s harus diisi !!!'));
+    $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean', array('required' => '%s harus diisi !!!'));
     // $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]|xss_clean|callback__usernameRegex', array('required' => '%s harus diisi !!!'));
-    $this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[6]|max_length[12]', array('required' => '%s harus diisi !!!'));
+    $this->form_validation->set_rules('pass', 'Password', 'trim|required|xss_clean', array('required' => '%s harus diisi !!!'));
   }
 
   public function Logout()

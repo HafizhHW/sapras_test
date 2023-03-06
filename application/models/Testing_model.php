@@ -69,6 +69,11 @@ class Testing_model extends CI_Model
     return $this->db->insert('files', $data);
   }
 
+  public function get_UserTest($table)
+  {
+    return $this->db->get($table);
+  }
+
 
 
   // ------------------------------------------------------------------------
